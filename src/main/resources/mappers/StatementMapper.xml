@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.StatementMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Statement">
+    <!--@mbg.generated-->
+    <!--@Table [Statement]-->
+    <id column="StmId" jdbcType="BIGINT" property="stmid" />
+    <result column="StmNo" jdbcType="VARCHAR" property="stmno" />
+    <result column="Type" jdbcType="TINYINT" property="type" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="CreateOn" jdbcType="TIMESTAMP" property="createon" />
+    <result column="CreateById" jdbcType="INTEGER" property="createbyid" />
+    <result column="OnDate" jdbcType="TIMESTAMP" property="ondate" />
+    <result column="ActiveOn" jdbcType="TIMESTAMP" property="activeon" />
+    <result column="LastActivedOn" jdbcType="TIMESTAMP" property="lastactivedon" />
+    <result column="DiscountRatio" jdbcType="DECIMAL" property="discountratio" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    StmId, StmNo, [Type], Description, CreateOn, CreateById, OnDate, ActiveOn, LastActivedOn, 
+    DiscountRatio, [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from [Statement]
+    where StmId = #{stmid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from [Statement]
+    where StmId = #{stmid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="StmId" keyProperty="stmid" parameterType="org.example.model.Statement" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into [Statement] (StmNo, [Type], Description, 
+      CreateOn, CreateById, OnDate, 
+      ActiveOn, LastActivedOn, DiscountRatio, 
+      [Status])
+    values (#{stmno,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, #{description,jdbcType=VARCHAR}, 
+      #{createon,jdbcType=TIMESTAMP}, #{createbyid,jdbcType=INTEGER}, #{ondate,jdbcType=TIMESTAMP}, 
+      #{activeon,jdbcType=TIMESTAMP}, #{lastactivedon,jdbcType=TIMESTAMP}, #{discountratio,jdbcType=DECIMAL}, 
+      #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="StmId" keyProperty="stmid" parameterType="org.example.model.Statement" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into [Statement]
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stmno != null">
+        StmNo,
+      </if>
+      <if test="type != null">
+        [Type],
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="createon != null">
+        CreateOn,
+      </if>
+      <if test="createbyid != null">
+        CreateById,
+      </if>
+      <if test="ondate != null">
+        OnDate,
+      </if>
+      <if test="activeon != null">
+        ActiveOn,
+      </if>
+      <if test="lastactivedon != null">
+        LastActivedOn,
+      </if>
+      <if test="discountratio != null">
+        DiscountRatio,
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stmno != null">
+        #{stmno,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createon != null">
+        #{createon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createbyid != null">
+        #{createbyid,jdbcType=INTEGER},
+      </if>
+      <if test="ondate != null">
+        #{ondate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activeon != null">
+        #{activeon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastactivedon != null">
+        #{lastactivedon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="discountratio != null">
+        #{discountratio,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Statement">
+    <!--@mbg.generated-->
+    update [Statement]
+    <set>
+      <if test="stmno != null">
+        StmNo = #{stmno,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        [Type] = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="createon != null">
+        CreateOn = #{createon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createbyid != null">
+        CreateById = #{createbyid,jdbcType=INTEGER},
+      </if>
+      <if test="ondate != null">
+        OnDate = #{ondate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="activeon != null">
+        ActiveOn = #{activeon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastactivedon != null">
+        LastActivedOn = #{lastactivedon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="discountratio != null">
+        DiscountRatio = #{discountratio,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where StmId = #{stmid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Statement">
+    <!--@mbg.generated-->
+    update [Statement]
+    set StmNo = #{stmno,jdbcType=VARCHAR},
+      [Type] = #{type,jdbcType=TINYINT},
+      Description = #{description,jdbcType=VARCHAR},
+      CreateOn = #{createon,jdbcType=TIMESTAMP},
+      CreateById = #{createbyid,jdbcType=INTEGER},
+      OnDate = #{ondate,jdbcType=TIMESTAMP},
+      ActiveOn = #{activeon,jdbcType=TIMESTAMP},
+      LastActivedOn = #{lastactivedon,jdbcType=TIMESTAMP},
+      DiscountRatio = #{discountratio,jdbcType=DECIMAL},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where StmId = #{stmid,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.LabExamItemMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.LabExamItem">
+    <!--@mbg.generated-->
+    <!--@Table LabExamItem-->
+    <id column="ExItemId" jdbcType="BIGINT" property="exitemid" />
+    <result column="LabExId" jdbcType="BIGINT" property="labexid" />
+    <result column="MedServiceId" jdbcType="INTEGER" property="medserviceid" />
+    <result column="ByWardUnitId" jdbcType="SMALLINT" property="bywardunitid" />
+    <result column="Qty" jdbcType="DECIMAL" property="qty" />
+    <result column="PriceId" jdbcType="INTEGER" property="priceid" />
+    <result column="Price" jdbcType="DECIMAL" property="price" />
+    <result column="DiscountRatio" jdbcType="DECIMAL" property="discountratio" />
+    <result column="Amt" jdbcType="DECIMAL" property="amt" />
+    <result column="EqptCode" jdbcType="VARCHAR" property="eqptcode" />
+    <result column="SpecimenTemplateCode" jdbcType="SMALLINT" property="specimentemplatecode" />
+    <result column="BloodTube" jdbcType="TINYINT" property="bloodtube" />
+    <result column="BloodBagCode" jdbcType="VARCHAR" property="bloodbagcode" />
+    <result column="PdfUrl" jdbcType="VARCHAR" property="pdfurl" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ExItemId, LabExId, MedServiceId, ByWardUnitId, Qty, PriceId, Price, DiscountRatio, 
+    Amt, EqptCode, SpecimenTemplateCode, BloodTube, BloodBagCode, PdfUrl, [Attribute], 
+    [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from LabExamItem
+    where ExItemId = #{exitemid,jdbcType=BIGINT}
+  </select>
+  <select id="getAllLabExamItems" resultMap="BaseResultMap">
+    SELECT * FROM dbo.LabExamItem
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from LabExamItem
+    where ExItemId = #{exitemid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ExItemId" keyProperty="exitemid" parameterType="org.example.model.LabExamItem" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabExamItem (LabExId, MedServiceId, ByWardUnitId, 
+      Qty, PriceId, Price, 
+      DiscountRatio, Amt, EqptCode, 
+      SpecimenTemplateCode, BloodTube, BloodBagCode, 
+      PdfUrl, [Attribute], [Status]
+      )
+    values (#{labexid,jdbcType=BIGINT}, #{medserviceid,jdbcType=INTEGER}, #{bywardunitid,jdbcType=SMALLINT}, 
+      #{qty,jdbcType=DECIMAL}, #{priceid,jdbcType=INTEGER}, #{price,jdbcType=DECIMAL}, 
+      #{discountratio,jdbcType=DECIMAL}, #{amt,jdbcType=DECIMAL}, #{eqptcode,jdbcType=VARCHAR}, 
+      #{specimentemplatecode,jdbcType=SMALLINT}, #{bloodtube,jdbcType=TINYINT}, #{bloodbagcode,jdbcType=VARCHAR}, 
+      #{pdfurl,jdbcType=VARCHAR}, #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="ExItemId" keyProperty="exitemid" parameterType="org.example.model.LabExamItem" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabExamItem
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="labexid != null">
+        LabExId,
+      </if>
+      <if test="medserviceid != null">
+        MedServiceId,
+      </if>
+      <if test="bywardunitid != null">
+        ByWardUnitId,
+      </if>
+      <if test="qty != null">
+        Qty,
+      </if>
+      <if test="priceid != null">
+        PriceId,
+      </if>
+      <if test="price != null">
+        Price,
+      </if>
+      <if test="discountratio != null">
+        DiscountRatio,
+      </if>
+      <if test="amt != null">
+        Amt,
+      </if>
+      <if test="eqptcode != null">
+        EqptCode,
+      </if>
+      <if test="specimentemplatecode != null">
+        SpecimenTemplateCode,
+      </if>
+      <if test="bloodtube != null">
+        BloodTube,
+      </if>
+      <if test="bloodbagcode != null">
+        BloodBagCode,
+      </if>
+      <if test="pdfurl != null">
+        PdfUrl,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="labexid != null">
+        #{labexid,jdbcType=BIGINT},
+      </if>
+      <if test="medserviceid != null">
+        #{medserviceid,jdbcType=INTEGER},
+      </if>
+      <if test="bywardunitid != null">
+        #{bywardunitid,jdbcType=SMALLINT},
+      </if>
+      <if test="qty != null">
+        #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="priceid != null">
+        #{priceid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="discountratio != null">
+        #{discountratio,jdbcType=DECIMAL},
+      </if>
+      <if test="amt != null">
+        #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="eqptcode != null">
+        #{eqptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="specimentemplatecode != null">
+        #{specimentemplatecode,jdbcType=SMALLINT},
+      </if>
+      <if test="bloodtube != null">
+        #{bloodtube,jdbcType=TINYINT},
+      </if>
+      <if test="bloodbagcode != null">
+        #{bloodbagcode,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfurl != null">
+        #{pdfurl,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.LabExamItem">
+    <!--@mbg.generated-->
+    update LabExamItem
+    <set>
+      <if test="labexid != null">
+        LabExId = #{labexid,jdbcType=BIGINT},
+      </if>
+      <if test="medserviceid != null">
+        MedServiceId = #{medserviceid,jdbcType=INTEGER},
+      </if>
+      <if test="bywardunitid != null">
+        ByWardUnitId = #{bywardunitid,jdbcType=SMALLINT},
+      </if>
+      <if test="qty != null">
+        Qty = #{qty,jdbcType=DECIMAL},
+      </if>
+      <if test="priceid != null">
+        PriceId = #{priceid,jdbcType=INTEGER},
+      </if>
+      <if test="price != null">
+        Price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="discountratio != null">
+        DiscountRatio = #{discountratio,jdbcType=DECIMAL},
+      </if>
+      <if test="amt != null">
+        Amt = #{amt,jdbcType=DECIMAL},
+      </if>
+      <if test="eqptcode != null">
+        EqptCode = #{eqptcode,jdbcType=VARCHAR},
+      </if>
+      <if test="specimentemplatecode != null">
+        SpecimenTemplateCode = #{specimentemplatecode,jdbcType=SMALLINT},
+      </if>
+      <if test="bloodtube != null">
+        BloodTube = #{bloodtube,jdbcType=TINYINT},
+      </if>
+      <if test="bloodbagcode != null">
+        BloodBagCode = #{bloodbagcode,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfurl != null">
+        PdfUrl = #{pdfurl,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where ExItemId = #{exitemid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.LabExamItem">
+    <!--@mbg.generated-->
+    update LabExamItem
+    set LabExId = #{labexid,jdbcType=BIGINT},
+      MedServiceId = #{medserviceid,jdbcType=INTEGER},
+      ByWardUnitId = #{bywardunitid,jdbcType=SMALLINT},
+      Qty = #{qty,jdbcType=DECIMAL},
+      PriceId = #{priceid,jdbcType=INTEGER},
+      Price = #{price,jdbcType=DECIMAL},
+      DiscountRatio = #{discountratio,jdbcType=DECIMAL},
+      Amt = #{amt,jdbcType=DECIMAL},
+      EqptCode = #{eqptcode,jdbcType=VARCHAR},
+      SpecimenTemplateCode = #{specimentemplatecode,jdbcType=SMALLINT},
+      BloodTube = #{bloodtube,jdbcType=TINYINT},
+      BloodBagCode = #{bloodbagcode,jdbcType=VARCHAR},
+      PdfUrl = #{pdfurl,jdbcType=VARCHAR},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where ExItemId = #{exitemid,jdbcType=BIGINT}
+  </update>
+</mapper>

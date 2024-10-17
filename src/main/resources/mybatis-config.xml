@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+                <property name="url" value="jdbc:sqlserver://203.29.19.77:1000;databaseName=DEV.ONELAB;instanceName=SQL-MASTER-IYS3"/>
+                <property name="username" value="devlab"/>
+                <property name="password" value="zaq12!@WSX"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mappers/AuCityMapper.xml"/>
+        <mapper resource="mappers/AuCountryMapper.xml"/>
+        <mapper resource="mappers/AuDistrictMapper.xml"/>
+        <mapper resource="mappers/AuWardMapper.xml"/>
+        <mapper resource="mappers/ContractMapper.xml"/>
+        <mapper resource="mappers/ContractStaffMapper.xml"/>
+        <mapper resource="mappers/EthnicMapper.xml"/>
+        <mapper resource="mappers/FunctionMapper.xml"/>
+        <mapper resource="mappers/GroupMapper.xml"/>
+        <mapper resource="mappers/Icd10Mapper.xml"/>
+        <mapper resource="mappers/LabExamItemMapper.xml"/>
+        <mapper resource="mappers/LabExamMapper.xml"/>
+        <mapper resource="mappers/LabExamResultMapper.xml"/>
+        <mapper resource="mappers/LabIndicatorMapper.xml"/>
+        <mapper resource="mappers/LabIndiGrpMapper.xml"/>
+        <mapper resource="mappers/LabIndiMedServiceMapper.xml"/>
+        <mapper resource="mappers/MasterDataMapper.xml"/>
+        <mapper resource="mappers/MedProviderMapper.xml"/>
+        <mapper resource="mappers/MedServiceMapper.xml"/>
+        <mapper resource="mappers/ModuleMapper.xml"/>
+        <mapper resource="mappers/PatientMapper.xml"/>
+        <mapper resource="mappers/PermissionMapper.xml"/>
+        <mapper resource="mappers/StaffGroupMapper.xml"/>
+        <mapper resource="mappers/StaffMapper.xml"/>
+        <mapper resource="mappers/StmMedServiceMapper.xml"/>
+        <mapper resource="mappers/SysdiagramsMapper.xml"/>
+        <mapper resource="mappers/UserGroupMapper.xml"/>
+        <mapper resource="mappers/UserMapper.xml"/>
+        <mapper resource="mappers/WardMapper.xml"/>
+        <mapper resource="mappers/WardUnitMapper.xml"/>
+        <mapper resource="mappers/ZoneMapper.xml"/>
+    </mappers>
+</configuration>

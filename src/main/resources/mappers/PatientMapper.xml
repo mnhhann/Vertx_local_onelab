@@ -1,0 +1,461 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.PatientMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Patient">
+    <!--@mbg.generated-->
+    <!--@Table Patient-->
+    <id column="PatientId" jdbcType="BIGINT" property="patientid" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="InsCode" jdbcType="VARCHAR" property="inscode" />
+    <result column="FirstName" jdbcType="VARCHAR" property="firstname" />
+    <result column="LastName" jdbcType="VARCHAR" property="lastname" />
+    <result column="SrcFullName" jdbcType="VARCHAR" property="srcfullname" />
+    <result column="DOB" jdbcType="DATE" property="dob" />
+    <result column="Gender" jdbcType="TINYINT" property="gender" />
+    <result column="BloodType" jdbcType="TINYINT" property="bloodtype" />
+    <result column="MedHistPerson" jdbcType="VARCHAR" property="medhistperson" />
+    <result column="MedHistFamily" jdbcType="VARCHAR" property="medhistfamily" />
+    <result column="Nationality" jdbcType="VARCHAR" property="nationality" />
+    <result column="Ethnic" jdbcType="VARCHAR" property="ethnic" />
+    <result column="Country" jdbcType="VARCHAR" property="country" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="AuCity" jdbcType="VARCHAR" property="aucity" />
+    <result column="AuDistrict" jdbcType="VARCHAR" property="audistrict" />
+    <result column="AuWard" jdbcType="VARCHAR" property="auward" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="MobileNo" jdbcType="VARCHAR" property="mobileno" />
+    <result column="HomePhone" jdbcType="VARCHAR" property="homephone" />
+    <result column="WorkPhone" jdbcType="VARCHAR" property="workphone" />
+    <result column="IdCardNo" jdbcType="VARCHAR" property="idcardno" />
+    <result column="IdCardOn" jdbcType="DATE" property="idcardon" />
+    <result column="IdCardAt" jdbcType="VARCHAR" property="idcardat" />
+    <result column="CompanyName" jdbcType="VARCHAR" property="companyname" />
+    <result column="CompanyAddress" jdbcType="VARCHAR" property="companyaddress" />
+    <result column="Occupation" jdbcType="SMALLINT" property="occupation" />
+    <result column="RelativeName" jdbcType="VARCHAR" property="relativename" />
+    <result column="RelativeAddr" jdbcType="VARCHAR" property="relativeaddr" />
+    <result column="RelativePhone" jdbcType="VARCHAR" property="relativephone" />
+    <result column="RelativeType" jdbcType="SMALLINT" property="relativetype" />
+    <result column="Notes" jdbcType="VARCHAR" property="notes" />
+    <result column="MergePatientId" jdbcType="BIGINT" property="mergepatientid" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    PatientId, Code, InsCode, FirstName, LastName, SrcFullName, DOB, Gender, BloodType, 
+    MedHistPerson, MedHistFamily, Nationality, Ethnic, Country, Address, AuCity, AuDistrict, 
+    AuWard, Email, MobileNo, HomePhone, WorkPhone, IdCardNo, IdCardOn, IdCardAt, CompanyName, 
+    CompanyAddress, Occupation, RelativeName, RelativeAddr, RelativePhone, RelativeType, 
+    Notes, MergePatientId, [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Patient
+    where PatientId = #{patientid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from Patient
+    where PatientId = #{patientid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="PatientId" keyProperty="patientid" parameterType="org.example.model.Patient" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Patient (Code, InsCode, FirstName, 
+      LastName, SrcFullName, DOB, 
+      Gender, BloodType, MedHistPerson, 
+      MedHistFamily, Nationality, Ethnic, 
+      Country, Address, AuCity, 
+      AuDistrict, AuWard, Email, 
+      MobileNo, HomePhone, WorkPhone, 
+      IdCardNo, IdCardOn, IdCardAt, 
+      CompanyName, CompanyAddress, Occupation, 
+      RelativeName, RelativeAddr, RelativePhone, 
+      RelativeType, Notes, MergePatientId, 
+      [Attribute], [Status])
+    values (#{code,jdbcType=VARCHAR}, #{inscode,jdbcType=VARCHAR}, #{firstname,jdbcType=VARCHAR}, 
+      #{lastname,jdbcType=VARCHAR}, #{srcfullname,jdbcType=VARCHAR}, #{dob,jdbcType=DATE}, 
+      #{gender,jdbcType=TINYINT}, #{bloodtype,jdbcType=TINYINT}, #{medhistperson,jdbcType=VARCHAR}, 
+      #{medhistfamily,jdbcType=VARCHAR}, #{nationality,jdbcType=VARCHAR}, #{ethnic,jdbcType=VARCHAR}, 
+      #{country,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, #{aucity,jdbcType=VARCHAR}, 
+      #{audistrict,jdbcType=VARCHAR}, #{auward,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, 
+      #{mobileno,jdbcType=VARCHAR}, #{homephone,jdbcType=VARCHAR}, #{workphone,jdbcType=VARCHAR}, 
+      #{idcardno,jdbcType=VARCHAR}, #{idcardon,jdbcType=DATE}, #{idcardat,jdbcType=VARCHAR}, 
+      #{companyname,jdbcType=VARCHAR}, #{companyaddress,jdbcType=VARCHAR}, #{occupation,jdbcType=SMALLINT}, 
+      #{relativename,jdbcType=VARCHAR}, #{relativeaddr,jdbcType=VARCHAR}, #{relativephone,jdbcType=VARCHAR}, 
+      #{relativetype,jdbcType=SMALLINT}, #{notes,jdbcType=VARCHAR}, #{mergepatientid,jdbcType=BIGINT}, 
+      #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="PatientId" keyProperty="patientid" parameterType="org.example.model.Patient" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Patient
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="inscode != null">
+        InsCode,
+      </if>
+      <if test="firstname != null">
+        FirstName,
+      </if>
+      <if test="lastname != null">
+        LastName,
+      </if>
+      <if test="srcfullname != null">
+        SrcFullName,
+      </if>
+      <if test="dob != null">
+        DOB,
+      </if>
+      <if test="gender != null">
+        Gender,
+      </if>
+      <if test="bloodtype != null">
+        BloodType,
+      </if>
+      <if test="medhistperson != null">
+        MedHistPerson,
+      </if>
+      <if test="medhistfamily != null">
+        MedHistFamily,
+      </if>
+      <if test="nationality != null">
+        Nationality,
+      </if>
+      <if test="ethnic != null">
+        Ethnic,
+      </if>
+      <if test="country != null">
+        Country,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="aucity != null">
+        AuCity,
+      </if>
+      <if test="audistrict != null">
+        AuDistrict,
+      </if>
+      <if test="auward != null">
+        AuWard,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="mobileno != null">
+        MobileNo,
+      </if>
+      <if test="homephone != null">
+        HomePhone,
+      </if>
+      <if test="workphone != null">
+        WorkPhone,
+      </if>
+      <if test="idcardno != null">
+        IdCardNo,
+      </if>
+      <if test="idcardon != null">
+        IdCardOn,
+      </if>
+      <if test="idcardat != null">
+        IdCardAt,
+      </if>
+      <if test="companyname != null">
+        CompanyName,
+      </if>
+      <if test="companyaddress != null">
+        CompanyAddress,
+      </if>
+      <if test="occupation != null">
+        Occupation,
+      </if>
+      <if test="relativename != null">
+        RelativeName,
+      </if>
+      <if test="relativeaddr != null">
+        RelativeAddr,
+      </if>
+      <if test="relativephone != null">
+        RelativePhone,
+      </if>
+      <if test="relativetype != null">
+        RelativeType,
+      </if>
+      <if test="notes != null">
+        Notes,
+      </if>
+      <if test="mergepatientid != null">
+        MergePatientId,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="inscode != null">
+        #{inscode,jdbcType=VARCHAR},
+      </if>
+      <if test="firstname != null">
+        #{firstname,jdbcType=VARCHAR},
+      </if>
+      <if test="lastname != null">
+        #{lastname,jdbcType=VARCHAR},
+      </if>
+      <if test="srcfullname != null">
+        #{srcfullname,jdbcType=VARCHAR},
+      </if>
+      <if test="dob != null">
+        #{dob,jdbcType=DATE},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="bloodtype != null">
+        #{bloodtype,jdbcType=TINYINT},
+      </if>
+      <if test="medhistperson != null">
+        #{medhistperson,jdbcType=VARCHAR},
+      </if>
+      <if test="medhistfamily != null">
+        #{medhistfamily,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="ethnic != null">
+        #{ethnic,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="aucity != null">
+        #{aucity,jdbcType=VARCHAR},
+      </if>
+      <if test="audistrict != null">
+        #{audistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="auward != null">
+        #{auward,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="homephone != null">
+        #{homephone,jdbcType=VARCHAR},
+      </if>
+      <if test="workphone != null">
+        #{workphone,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardno != null">
+        #{idcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardon != null">
+        #{idcardon,jdbcType=DATE},
+      </if>
+      <if test="idcardat != null">
+        #{idcardat,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyaddress != null">
+        #{companyaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        #{occupation,jdbcType=SMALLINT},
+      </if>
+      <if test="relativename != null">
+        #{relativename,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeaddr != null">
+        #{relativeaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="relativephone != null">
+        #{relativephone,jdbcType=VARCHAR},
+      </if>
+      <if test="relativetype != null">
+        #{relativetype,jdbcType=SMALLINT},
+      </if>
+      <if test="notes != null">
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="mergepatientid != null">
+        #{mergepatientid,jdbcType=BIGINT},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Patient">
+    <!--@mbg.generated-->
+    update Patient
+    <set>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="inscode != null">
+        InsCode = #{inscode,jdbcType=VARCHAR},
+      </if>
+      <if test="firstname != null">
+        FirstName = #{firstname,jdbcType=VARCHAR},
+      </if>
+      <if test="lastname != null">
+        LastName = #{lastname,jdbcType=VARCHAR},
+      </if>
+      <if test="srcfullname != null">
+        SrcFullName = #{srcfullname,jdbcType=VARCHAR},
+      </if>
+      <if test="dob != null">
+        DOB = #{dob,jdbcType=DATE},
+      </if>
+      <if test="gender != null">
+        Gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="bloodtype != null">
+        BloodType = #{bloodtype,jdbcType=TINYINT},
+      </if>
+      <if test="medhistperson != null">
+        MedHistPerson = #{medhistperson,jdbcType=VARCHAR},
+      </if>
+      <if test="medhistfamily != null">
+        MedHistFamily = #{medhistfamily,jdbcType=VARCHAR},
+      </if>
+      <if test="nationality != null">
+        Nationality = #{nationality,jdbcType=VARCHAR},
+      </if>
+      <if test="ethnic != null">
+        Ethnic = #{ethnic,jdbcType=VARCHAR},
+      </if>
+      <if test="country != null">
+        Country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="aucity != null">
+        AuCity = #{aucity,jdbcType=VARCHAR},
+      </if>
+      <if test="audistrict != null">
+        AuDistrict = #{audistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="auward != null">
+        AuWard = #{auward,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        MobileNo = #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="homephone != null">
+        HomePhone = #{homephone,jdbcType=VARCHAR},
+      </if>
+      <if test="workphone != null">
+        WorkPhone = #{workphone,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardno != null">
+        IdCardNo = #{idcardno,jdbcType=VARCHAR},
+      </if>
+      <if test="idcardon != null">
+        IdCardOn = #{idcardon,jdbcType=DATE},
+      </if>
+      <if test="idcardat != null">
+        IdCardAt = #{idcardat,jdbcType=VARCHAR},
+      </if>
+      <if test="companyname != null">
+        CompanyName = #{companyname,jdbcType=VARCHAR},
+      </if>
+      <if test="companyaddress != null">
+        CompanyAddress = #{companyaddress,jdbcType=VARCHAR},
+      </if>
+      <if test="occupation != null">
+        Occupation = #{occupation,jdbcType=SMALLINT},
+      </if>
+      <if test="relativename != null">
+        RelativeName = #{relativename,jdbcType=VARCHAR},
+      </if>
+      <if test="relativeaddr != null">
+        RelativeAddr = #{relativeaddr,jdbcType=VARCHAR},
+      </if>
+      <if test="relativephone != null">
+        RelativePhone = #{relativephone,jdbcType=VARCHAR},
+      </if>
+      <if test="relativetype != null">
+        RelativeType = #{relativetype,jdbcType=SMALLINT},
+      </if>
+      <if test="notes != null">
+        Notes = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="mergepatientid != null">
+        MergePatientId = #{mergepatientid,jdbcType=BIGINT},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where PatientId = #{patientid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Patient">
+    <!--@mbg.generated-->
+    update Patient
+    set Code = #{code,jdbcType=VARCHAR},
+      InsCode = #{inscode,jdbcType=VARCHAR},
+      FirstName = #{firstname,jdbcType=VARCHAR},
+      LastName = #{lastname,jdbcType=VARCHAR},
+      SrcFullName = #{srcfullname,jdbcType=VARCHAR},
+      DOB = #{dob,jdbcType=DATE},
+      Gender = #{gender,jdbcType=TINYINT},
+      BloodType = #{bloodtype,jdbcType=TINYINT},
+      MedHistPerson = #{medhistperson,jdbcType=VARCHAR},
+      MedHistFamily = #{medhistfamily,jdbcType=VARCHAR},
+      Nationality = #{nationality,jdbcType=VARCHAR},
+      Ethnic = #{ethnic,jdbcType=VARCHAR},
+      Country = #{country,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      AuCity = #{aucity,jdbcType=VARCHAR},
+      AuDistrict = #{audistrict,jdbcType=VARCHAR},
+      AuWard = #{auward,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      MobileNo = #{mobileno,jdbcType=VARCHAR},
+      HomePhone = #{homephone,jdbcType=VARCHAR},
+      WorkPhone = #{workphone,jdbcType=VARCHAR},
+      IdCardNo = #{idcardno,jdbcType=VARCHAR},
+      IdCardOn = #{idcardon,jdbcType=DATE},
+      IdCardAt = #{idcardat,jdbcType=VARCHAR},
+      CompanyName = #{companyname,jdbcType=VARCHAR},
+      CompanyAddress = #{companyaddress,jdbcType=VARCHAR},
+      Occupation = #{occupation,jdbcType=SMALLINT},
+      RelativeName = #{relativename,jdbcType=VARCHAR},
+      RelativeAddr = #{relativeaddr,jdbcType=VARCHAR},
+      RelativePhone = #{relativephone,jdbcType=VARCHAR},
+      RelativeType = #{relativetype,jdbcType=SMALLINT},
+      Notes = #{notes,jdbcType=VARCHAR},
+      MergePatientId = #{mergepatientid,jdbcType=BIGINT},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where PatientId = #{patientid,jdbcType=BIGINT}
+  </update>
+</mapper>

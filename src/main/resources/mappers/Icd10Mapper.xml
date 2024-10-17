@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.Icd10Mapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Icd10">
+    <!--@mbg.generated-->
+    <!--@Table ICD10-->
+    <id column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="DescVn" jdbcType="VARCHAR" property="descvn" />
+    <result column="DescEn" jdbcType="VARCHAR" property="descen" />
+    <result column="AtLevel" jdbcType="TINYINT" property="atlevel" />
+    <result column="ParentCode" jdbcType="VARCHAR" property="parentcode" />
+    <result column="ReportCode" jdbcType="VARCHAR" property="reportcode" />
+    <result column="SortId" jdbcType="SMALLINT" property="sortid" />
+    <result column="ClaimApproval" jdbcType="BIT" property="claimapproval" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Code, DescVn, DescEn, AtLevel, ParentCode, ReportCode, SortId, ClaimApproval, [Attribute], 
+    [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ICD10
+    where Code = #{code,jdbcType=VARCHAR}
+  </select>
+  <select id="getAllICD10s" resultMap="BaseResultMap">
+    SELECT * FROM dbo.ICD10
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from ICD10
+    where Code = #{code,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.example.model.Icd10">
+    <!--@mbg.generated-->
+    insert into ICD10 (Code, DescVn, DescEn, 
+      AtLevel, ParentCode, ReportCode, 
+      SortId, ClaimApproval, [Attribute], 
+      [Status])
+    values (#{code,jdbcType=VARCHAR}, #{descvn,jdbcType=VARCHAR}, #{descen,jdbcType=VARCHAR}, 
+      #{atlevel,jdbcType=TINYINT}, #{parentcode,jdbcType=VARCHAR}, #{reportcode,jdbcType=VARCHAR}, 
+      #{sortid,jdbcType=SMALLINT}, #{claimapproval,jdbcType=BIT}, #{attribute,jdbcType=INTEGER}, 
+      #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.example.model.Icd10">
+    <!--@mbg.generated-->
+    insert into ICD10
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="descvn != null">
+        DescVn,
+      </if>
+      <if test="descen != null">
+        DescEn,
+      </if>
+      <if test="atlevel != null">
+        AtLevel,
+      </if>
+      <if test="parentcode != null">
+        ParentCode,
+      </if>
+      <if test="reportcode != null">
+        ReportCode,
+      </if>
+      <if test="sortid != null">
+        SortId,
+      </if>
+      <if test="claimapproval != null">
+        ClaimApproval,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="descvn != null">
+        #{descvn,jdbcType=VARCHAR},
+      </if>
+      <if test="descen != null">
+        #{descen,jdbcType=VARCHAR},
+      </if>
+      <if test="atlevel != null">
+        #{atlevel,jdbcType=TINYINT},
+      </if>
+      <if test="parentcode != null">
+        #{parentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="reportcode != null">
+        #{reportcode,jdbcType=VARCHAR},
+      </if>
+      <if test="sortid != null">
+        #{sortid,jdbcType=SMALLINT},
+      </if>
+      <if test="claimapproval != null">
+        #{claimapproval,jdbcType=BIT},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Icd10">
+    <!--@mbg.generated-->
+    update ICD10
+    <set>
+      <if test="descvn != null">
+        DescVn = #{descvn,jdbcType=VARCHAR},
+      </if>
+      <if test="descen != null">
+        DescEn = #{descen,jdbcType=VARCHAR},
+      </if>
+      <if test="atlevel != null">
+        AtLevel = #{atlevel,jdbcType=TINYINT},
+      </if>
+      <if test="parentcode != null">
+        ParentCode = #{parentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="reportcode != null">
+        ReportCode = #{reportcode,jdbcType=VARCHAR},
+      </if>
+      <if test="sortid != null">
+        SortId = #{sortid,jdbcType=SMALLINT},
+      </if>
+      <if test="claimapproval != null">
+        ClaimApproval = #{claimapproval,jdbcType=BIT},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where Code = #{code,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Icd10">
+    <!--@mbg.generated-->
+    update ICD10
+    set DescVn = #{descvn,jdbcType=VARCHAR},
+      DescEn = #{descen,jdbcType=VARCHAR},
+      AtLevel = #{atlevel,jdbcType=TINYINT},
+      ParentCode = #{parentcode,jdbcType=VARCHAR},
+      ReportCode = #{reportcode,jdbcType=VARCHAR},
+      SortId = #{sortid,jdbcType=SMALLINT},
+      ClaimApproval = #{claimapproval,jdbcType=BIT},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where Code = #{code,jdbcType=VARCHAR}
+  </update>
+</mapper>

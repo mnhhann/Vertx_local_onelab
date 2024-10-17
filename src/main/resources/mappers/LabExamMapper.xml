@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.LabExamMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.LabExam">
+    <!--@mbg.generated-->
+    <!--@Table LabExam-->
+    <id column="LabExId" jdbcType="BIGINT" property="labexid" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="RefNo" jdbcType="VARCHAR" property="refno" />
+    <result column="IdToFiller" jdbcType="VARCHAR" property="idtofiller" />
+    <result column="PatientId" jdbcType="BIGINT" property="patientid" />
+    <result column="FrWardAdmId" jdbcType="BIGINT" property="frwardadmid" />
+    <result column="FrVisitEntryId" jdbcType="BIGINT" property="frvisitentryid" />
+    <result column="FrTxVisitId" jdbcType="BIGINT" property="frtxvisitid" />
+    <result column="DxInitial" jdbcType="VARCHAR" property="dxinitial" />
+    <result column="DxICD" jdbcType="VARCHAR" property="dxicd" />
+    <result column="DxText" jdbcType="VARCHAR" property="dxtext" />
+    <result column="ContractId" jdbcType="BIGINT" property="contractid" />
+    <result column="QtyTest" jdbcType="SMALLINT" property="qtytest" />
+    <result column="CreateById" jdbcType="INTEGER" property="createbyid" />
+    <result column="CreateOn" jdbcType="TIMESTAMP" property="createon" />
+    <result column="LabReqWardUnitId" jdbcType="SMALLINT" property="labreqwardunitid" />
+    <result column="LabReqNotes" jdbcType="VARCHAR" property="labreqnotes" />
+    <result column="LabReqById" jdbcType="INTEGER" property="labreqbyid" />
+    <result column="OnDate" jdbcType="TIMESTAMP" property="ondate" />
+    <result column="LabDoneById" jdbcType="INTEGER" property="labdonebyid" />
+    <result column="LabDxOn" jdbcType="TIMESTAMP" property="labdxon" />
+    <result column="LabDxApproveById" jdbcType="INTEGER" property="labdxapprovebyid" />
+    <result column="LabDxApproveOn" jdbcType="TIMESTAMP" property="labdxapproveon" />
+    <result column="LabDxConclusion" jdbcType="VARCHAR" property="labdxconclusion" />
+    <result column="CancelById" jdbcType="INTEGER" property="cancelbyid" />
+    <result column="CancelOn" jdbcType="TIMESTAMP" property="cancelon" />
+    <result column="CancelReason" jdbcType="VARCHAR" property="cancelreason" />
+    <result column="OrdGrpId" jdbcType="BIGINT" property="ordgrpid" />
+    <result column="OrdResultGrpId" jdbcType="BIGINT" property="ordresultgrpid" />
+    <result column="TicketId" jdbcType="BIGINT" property="ticketid" />
+    <result column="QmsNo" jdbcType="VARCHAR" property="qmsno" />
+    <result column="PdfUrl" jdbcType="VARCHAR" property="pdfurl" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    LabExId, [Type], RefNo, IdToFiller, PatientId, FrWardAdmId, FrVisitEntryId, FrTxVisitId, 
+    DxInitial, DxICD, DxText, ContractId, QtyTest, CreateById, CreateOn, LabReqWardUnitId, 
+    LabReqNotes, LabReqById, OnDate, LabDoneById, LabDxOn, LabDxApproveById, LabDxApproveOn, 
+    LabDxConclusion, CancelById, CancelOn, CancelReason, OrdGrpId, OrdResultGrpId, TicketId, 
+    QmsNo, PdfUrl, [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from LabExam
+    where LabExId = #{labexid,jdbcType=BIGINT}
+  </select>
+  <select id="getAllLabExams" resultMap="BaseResultMap">
+    SELECT * FROM dbo.LabExam
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from LabExam
+    where LabExId = #{labexid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="LabExId" keyProperty="labexid" parameterType="org.example.model.LabExam" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabExam ([Type], RefNo, IdToFiller, 
+      PatientId, FrWardAdmId, FrVisitEntryId, 
+      FrTxVisitId, DxInitial, DxICD, 
+      DxText, ContractId, QtyTest, 
+      CreateById, CreateOn, LabReqWardUnitId, 
+      LabReqNotes, LabReqById, OnDate, 
+      LabDoneById, LabDxOn, LabDxApproveById, 
+      LabDxApproveOn, LabDxConclusion, CancelById, 
+      CancelOn, CancelReason, OrdGrpId, 
+      OrdResultGrpId, TicketId, QmsNo, 
+      PdfUrl, [Attribute], [Status]
+      )
+    values (#{type,jdbcType=SMALLINT}, #{refno,jdbcType=VARCHAR}, #{idtofiller,jdbcType=VARCHAR}, 
+      #{patientid,jdbcType=BIGINT}, #{frwardadmid,jdbcType=BIGINT}, #{frvisitentryid,jdbcType=BIGINT}, 
+      #{frtxvisitid,jdbcType=BIGINT}, #{dxinitial,jdbcType=VARCHAR}, #{dxicd,jdbcType=VARCHAR}, 
+      #{dxtext,jdbcType=VARCHAR}, #{contractid,jdbcType=BIGINT}, #{qtytest,jdbcType=SMALLINT}, 
+      #{createbyid,jdbcType=INTEGER}, #{createon,jdbcType=TIMESTAMP}, #{labreqwardunitid,jdbcType=SMALLINT}, 
+      #{labreqnotes,jdbcType=VARCHAR}, #{labreqbyid,jdbcType=INTEGER}, #{ondate,jdbcType=TIMESTAMP}, 
+      #{labdonebyid,jdbcType=INTEGER}, #{labdxon,jdbcType=TIMESTAMP}, #{labdxapprovebyid,jdbcType=INTEGER}, 
+      #{labdxapproveon,jdbcType=TIMESTAMP}, #{labdxconclusion,jdbcType=VARCHAR}, #{cancelbyid,jdbcType=INTEGER}, 
+      #{cancelon,jdbcType=TIMESTAMP}, #{cancelreason,jdbcType=VARCHAR}, #{ordgrpid,jdbcType=BIGINT}, 
+      #{ordresultgrpid,jdbcType=BIGINT}, #{ticketid,jdbcType=BIGINT}, #{qmsno,jdbcType=VARCHAR}, 
+      #{pdfurl,jdbcType=VARCHAR}, #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="LabExId" keyProperty="labexid" parameterType="org.example.model.LabExam" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabExam
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        [Type],
+      </if>
+      <if test="refno != null">
+        RefNo,
+      </if>
+      <if test="idtofiller != null">
+        IdToFiller,
+      </if>
+      <if test="patientid != null">
+        PatientId,
+      </if>
+      <if test="frwardadmid != null">
+        FrWardAdmId,
+      </if>
+      <if test="frvisitentryid != null">
+        FrVisitEntryId,
+      </if>
+      <if test="frtxvisitid != null">
+        FrTxVisitId,
+      </if>
+      <if test="dxinitial != null">
+        DxInitial,
+      </if>
+      <if test="dxicd != null">
+        DxICD,
+      </if>
+      <if test="dxtext != null">
+        DxText,
+      </if>
+      <if test="contractid != null">
+        ContractId,
+      </if>
+      <if test="qtytest != null">
+        QtyTest,
+      </if>
+      <if test="createbyid != null">
+        CreateById,
+      </if>
+      <if test="createon != null">
+        CreateOn,
+      </if>
+      <if test="labreqwardunitid != null">
+        LabReqWardUnitId,
+      </if>
+      <if test="labreqnotes != null">
+        LabReqNotes,
+      </if>
+      <if test="labreqbyid != null">
+        LabReqById,
+      </if>
+      <if test="ondate != null">
+        OnDate,
+      </if>
+      <if test="labdonebyid != null">
+        LabDoneById,
+      </if>
+      <if test="labdxon != null">
+        LabDxOn,
+      </if>
+      <if test="labdxapprovebyid != null">
+        LabDxApproveById,
+      </if>
+      <if test="labdxapproveon != null">
+        LabDxApproveOn,
+      </if>
+      <if test="labdxconclusion != null">
+        LabDxConclusion,
+      </if>
+      <if test="cancelbyid != null">
+        CancelById,
+      </if>
+      <if test="cancelon != null">
+        CancelOn,
+      </if>
+      <if test="cancelreason != null">
+        CancelReason,
+      </if>
+      <if test="ordgrpid != null">
+        OrdGrpId,
+      </if>
+      <if test="ordresultgrpid != null">
+        OrdResultGrpId,
+      </if>
+      <if test="ticketid != null">
+        TicketId,
+      </if>
+      <if test="qmsno != null">
+        QmsNo,
+      </if>
+      <if test="pdfurl != null">
+        PdfUrl,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="refno != null">
+        #{refno,jdbcType=VARCHAR},
+      </if>
+      <if test="idtofiller != null">
+        #{idtofiller,jdbcType=VARCHAR},
+      </if>
+      <if test="patientid != null">
+        #{patientid,jdbcType=BIGINT},
+      </if>
+      <if test="frwardadmid != null">
+        #{frwardadmid,jdbcType=BIGINT},
+      </if>
+      <if test="frvisitentryid != null">
+        #{frvisitentryid,jdbcType=BIGINT},
+      </if>
+      <if test="frtxvisitid != null">
+        #{frtxvisitid,jdbcType=BIGINT},
+      </if>
+      <if test="dxinitial != null">
+        #{dxinitial,jdbcType=VARCHAR},
+      </if>
+      <if test="dxicd != null">
+        #{dxicd,jdbcType=VARCHAR},
+      </if>
+      <if test="dxtext != null">
+        #{dxtext,jdbcType=VARCHAR},
+      </if>
+      <if test="contractid != null">
+        #{contractid,jdbcType=BIGINT},
+      </if>
+      <if test="qtytest != null">
+        #{qtytest,jdbcType=SMALLINT},
+      </if>
+      <if test="createbyid != null">
+        #{createbyid,jdbcType=INTEGER},
+      </if>
+      <if test="createon != null">
+        #{createon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labreqwardunitid != null">
+        #{labreqwardunitid,jdbcType=SMALLINT},
+      </if>
+      <if test="labreqnotes != null">
+        #{labreqnotes,jdbcType=VARCHAR},
+      </if>
+      <if test="labreqbyid != null">
+        #{labreqbyid,jdbcType=INTEGER},
+      </if>
+      <if test="ondate != null">
+        #{ondate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labdonebyid != null">
+        #{labdonebyid,jdbcType=INTEGER},
+      </if>
+      <if test="labdxon != null">
+        #{labdxon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labdxapprovebyid != null">
+        #{labdxapprovebyid,jdbcType=INTEGER},
+      </if>
+      <if test="labdxapproveon != null">
+        #{labdxapproveon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labdxconclusion != null">
+        #{labdxconclusion,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelbyid != null">
+        #{cancelbyid,jdbcType=INTEGER},
+      </if>
+      <if test="cancelon != null">
+        #{cancelon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelreason != null">
+        #{cancelreason,jdbcType=VARCHAR},
+      </if>
+      <if test="ordgrpid != null">
+        #{ordgrpid,jdbcType=BIGINT},
+      </if>
+      <if test="ordresultgrpid != null">
+        #{ordresultgrpid,jdbcType=BIGINT},
+      </if>
+      <if test="ticketid != null">
+        #{ticketid,jdbcType=BIGINT},
+      </if>
+      <if test="qmsno != null">
+        #{qmsno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfurl != null">
+        #{pdfurl,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.LabExam">
+    <!--@mbg.generated-->
+    update LabExam
+    <set>
+      <if test="type != null">
+        [Type] = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="refno != null">
+        RefNo = #{refno,jdbcType=VARCHAR},
+      </if>
+      <if test="idtofiller != null">
+        IdToFiller = #{idtofiller,jdbcType=VARCHAR},
+      </if>
+      <if test="patientid != null">
+        PatientId = #{patientid,jdbcType=BIGINT},
+      </if>
+      <if test="frwardadmid != null">
+        FrWardAdmId = #{frwardadmid,jdbcType=BIGINT},
+      </if>
+      <if test="frvisitentryid != null">
+        FrVisitEntryId = #{frvisitentryid,jdbcType=BIGINT},
+      </if>
+      <if test="frtxvisitid != null">
+        FrTxVisitId = #{frtxvisitid,jdbcType=BIGINT},
+      </if>
+      <if test="dxinitial != null">
+        DxInitial = #{dxinitial,jdbcType=VARCHAR},
+      </if>
+      <if test="dxicd != null">
+        DxICD = #{dxicd,jdbcType=VARCHAR},
+      </if>
+      <if test="dxtext != null">
+        DxText = #{dxtext,jdbcType=VARCHAR},
+      </if>
+      <if test="contractid != null">
+        ContractId = #{contractid,jdbcType=BIGINT},
+      </if>
+      <if test="qtytest != null">
+        QtyTest = #{qtytest,jdbcType=SMALLINT},
+      </if>
+      <if test="createbyid != null">
+        CreateById = #{createbyid,jdbcType=INTEGER},
+      </if>
+      <if test="createon != null">
+        CreateOn = #{createon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labreqwardunitid != null">
+        LabReqWardUnitId = #{labreqwardunitid,jdbcType=SMALLINT},
+      </if>
+      <if test="labreqnotes != null">
+        LabReqNotes = #{labreqnotes,jdbcType=VARCHAR},
+      </if>
+      <if test="labreqbyid != null">
+        LabReqById = #{labreqbyid,jdbcType=INTEGER},
+      </if>
+      <if test="ondate != null">
+        OnDate = #{ondate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labdonebyid != null">
+        LabDoneById = #{labdonebyid,jdbcType=INTEGER},
+      </if>
+      <if test="labdxon != null">
+        LabDxOn = #{labdxon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labdxapprovebyid != null">
+        LabDxApproveById = #{labdxapprovebyid,jdbcType=INTEGER},
+      </if>
+      <if test="labdxapproveon != null">
+        LabDxApproveOn = #{labdxapproveon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="labdxconclusion != null">
+        LabDxConclusion = #{labdxconclusion,jdbcType=VARCHAR},
+      </if>
+      <if test="cancelbyid != null">
+        CancelById = #{cancelbyid,jdbcType=INTEGER},
+      </if>
+      <if test="cancelon != null">
+        CancelOn = #{cancelon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="cancelreason != null">
+        CancelReason = #{cancelreason,jdbcType=VARCHAR},
+      </if>
+      <if test="ordgrpid != null">
+        OrdGrpId = #{ordgrpid,jdbcType=BIGINT},
+      </if>
+      <if test="ordresultgrpid != null">
+        OrdResultGrpId = #{ordresultgrpid,jdbcType=BIGINT},
+      </if>
+      <if test="ticketid != null">
+        TicketId = #{ticketid,jdbcType=BIGINT},
+      </if>
+      <if test="qmsno != null">
+        QmsNo = #{qmsno,jdbcType=VARCHAR},
+      </if>
+      <if test="pdfurl != null">
+        PdfUrl = #{pdfurl,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where LabExId = #{labexid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.LabExam">
+    <!--@mbg.generated-->
+    update LabExam
+    set [Type] = #{type,jdbcType=SMALLINT},
+      RefNo = #{refno,jdbcType=VARCHAR},
+      IdToFiller = #{idtofiller,jdbcType=VARCHAR},
+      PatientId = #{patientid,jdbcType=BIGINT},
+      FrWardAdmId = #{frwardadmid,jdbcType=BIGINT},
+      FrVisitEntryId = #{frvisitentryid,jdbcType=BIGINT},
+      FrTxVisitId = #{frtxvisitid,jdbcType=BIGINT},
+      DxInitial = #{dxinitial,jdbcType=VARCHAR},
+      DxICD = #{dxicd,jdbcType=VARCHAR},
+      DxText = #{dxtext,jdbcType=VARCHAR},
+      ContractId = #{contractid,jdbcType=BIGINT},
+      QtyTest = #{qtytest,jdbcType=SMALLINT},
+      CreateById = #{createbyid,jdbcType=INTEGER},
+      CreateOn = #{createon,jdbcType=TIMESTAMP},
+      LabReqWardUnitId = #{labreqwardunitid,jdbcType=SMALLINT},
+      LabReqNotes = #{labreqnotes,jdbcType=VARCHAR},
+      LabReqById = #{labreqbyid,jdbcType=INTEGER},
+      OnDate = #{ondate,jdbcType=TIMESTAMP},
+      LabDoneById = #{labdonebyid,jdbcType=INTEGER},
+      LabDxOn = #{labdxon,jdbcType=TIMESTAMP},
+      LabDxApproveById = #{labdxapprovebyid,jdbcType=INTEGER},
+      LabDxApproveOn = #{labdxapproveon,jdbcType=TIMESTAMP},
+      LabDxConclusion = #{labdxconclusion,jdbcType=VARCHAR},
+      CancelById = #{cancelbyid,jdbcType=INTEGER},
+      CancelOn = #{cancelon,jdbcType=TIMESTAMP},
+      CancelReason = #{cancelreason,jdbcType=VARCHAR},
+      OrdGrpId = #{ordgrpid,jdbcType=BIGINT},
+      OrdResultGrpId = #{ordresultgrpid,jdbcType=BIGINT},
+      TicketId = #{ticketid,jdbcType=BIGINT},
+      QmsNo = #{qmsno,jdbcType=VARCHAR},
+      PdfUrl = #{pdfurl,jdbcType=VARCHAR},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where LabExId = #{labexid,jdbcType=BIGINT}
+  </update>
+</mapper>

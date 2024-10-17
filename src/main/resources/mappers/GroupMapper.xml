@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.GroupMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Group">
+    <!--@mbg.generated-->
+    <!--@Table [Group]-->
+    <id column="Id" jdbcType="SMALLINT" property="id" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="IsSystem" jdbcType="BIT" property="issystem" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, Code, [Name], IsSystem, [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from [Group]
+    where Id = #{id,jdbcType=SMALLINT}
+  </select>
+  <select id="getAllGroups" resultMap="BaseResultMap">
+    SELECT * FROM dbo.Group
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbg.generated-->
+    delete from [Group]
+    where Id = #{id,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="org.example.model.Group" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into [Group] (Code, [Name], IsSystem, 
+      [Attribute], [Status])
+    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{issystem,jdbcType=BIT}, 
+      #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="org.example.model.Group" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into [Group]
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="issystem != null">
+        IsSystem,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="issystem != null">
+        #{issystem,jdbcType=BIT},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Group">
+    <!--@mbg.generated-->
+    update [Group]
+    <set>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="issystem != null">
+        IsSystem = #{issystem,jdbcType=BIT},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Group">
+    <!--@mbg.generated-->
+    update [Group]
+    set Code = #{code,jdbcType=VARCHAR},
+      [Name] = #{name,jdbcType=VARCHAR},
+      IsSystem = #{issystem,jdbcType=BIT},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where Id = #{id,jdbcType=SMALLINT}
+  </update>
+</mapper>

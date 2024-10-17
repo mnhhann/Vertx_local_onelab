@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.LabIndiMedServiceMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.LabIndiMedService">
+    <!--@mbg.generated-->
+    <!--@Table LabIndiMedService-->
+    <id column="IndMedId" jdbcType="BIGINT" property="indmedid" />
+    <result column="MedServiceId" jdbcType="INTEGER" property="medserviceid" />
+    <result column="IndId" jdbcType="INTEGER" property="indid" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    IndMedId, MedServiceId, IndId, [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from LabIndiMedService
+    where IndMedId = #{indmedid,jdbcType=BIGINT}
+  </select>
+  <select id="getAllLabIndiMedServices" resultMap="BaseResultMap">
+    SELECT * FROM dbo.LabIndiMedService
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from LabIndiMedService
+    where IndMedId = #{indmedid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="IndMedId" keyProperty="indmedid" parameterType="org.example.model.LabIndiMedService" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabIndiMedService (MedServiceId, IndId, [Status]
+      )
+    values (#{medserviceid,jdbcType=INTEGER}, #{indid,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="IndMedId" keyProperty="indmedid" parameterType="org.example.model.LabIndiMedService" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabIndiMedService
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="medserviceid != null">
+        MedServiceId,
+      </if>
+      <if test="indid != null">
+        IndId,
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="medserviceid != null">
+        #{medserviceid,jdbcType=INTEGER},
+      </if>
+      <if test="indid != null">
+        #{indid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.LabIndiMedService">
+    <!--@mbg.generated-->
+    update LabIndiMedService
+    <set>
+      <if test="medserviceid != null">
+        MedServiceId = #{medserviceid,jdbcType=INTEGER},
+      </if>
+      <if test="indid != null">
+        IndId = #{indid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where IndMedId = #{indmedid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.LabIndiMedService">
+    <!--@mbg.generated-->
+    update LabIndiMedService
+    set MedServiceId = #{medserviceid,jdbcType=INTEGER},
+      IndId = #{indid,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where IndMedId = #{indmedid,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.WardMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Ward">
+    <!--@mbg.generated-->
+    <!--@Table Ward-->
+    <id column="WardId" jdbcType="SMALLINT" property="wardid" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="InsCode" jdbcType="VARCHAR" property="inscode" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Phone" jdbcType="VARCHAR" property="phone" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="ContactBy" jdbcType="VARCHAR" property="contactby" />
+    <result column="nDoctor" jdbcType="SMALLINT" property="ndoctor" />
+    <result column="nNurse" jdbcType="SMALLINT" property="nnurse" />
+    <result column="nTechnician" jdbcType="SMALLINT" property="ntechnician" />
+    <result column="nBed" jdbcType="SMALLINT" property="nbed" />
+    <result column="AdvAmt" jdbcType="DECIMAL" property="advamt" />
+    <result column="Zone" jdbcType="SMALLINT" property="zone" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    WardId, Code, InsCode, [Name], Phone, Email, ContactBy, nDoctor, nNurse, nTechnician, 
+    nBed, AdvAmt, [Zone], [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Ward
+    where WardId = #{wardid,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbg.generated-->
+    delete from Ward
+    where WardId = #{wardid,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" keyColumn="WardId" keyProperty="wardid" parameterType="org.example.model.Ward" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Ward (Code, InsCode, [Name], 
+      Phone, Email, ContactBy, 
+      nDoctor, nNurse, nTechnician, 
+      nBed, AdvAmt, [Zone], 
+      [Attribute], [Status])
+    values (#{code,jdbcType=VARCHAR}, #{inscode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{contactby,jdbcType=VARCHAR}, 
+      #{ndoctor,jdbcType=SMALLINT}, #{nnurse,jdbcType=SMALLINT}, #{ntechnician,jdbcType=SMALLINT}, 
+      #{nbed,jdbcType=SMALLINT}, #{advamt,jdbcType=DECIMAL}, #{zone,jdbcType=SMALLINT}, 
+      #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="WardId" keyProperty="wardid" parameterType="org.example.model.Ward" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Ward
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="inscode != null">
+        InsCode,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="phone != null">
+        Phone,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="contactby != null">
+        ContactBy,
+      </if>
+      <if test="ndoctor != null">
+        nDoctor,
+      </if>
+      <if test="nnurse != null">
+        nNurse,
+      </if>
+      <if test="ntechnician != null">
+        nTechnician,
+      </if>
+      <if test="nbed != null">
+        nBed,
+      </if>
+      <if test="advamt != null">
+        AdvAmt,
+      </if>
+      <if test="zone != null">
+        [Zone],
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="inscode != null">
+        #{inscode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="contactby != null">
+        #{contactby,jdbcType=VARCHAR},
+      </if>
+      <if test="ndoctor != null">
+        #{ndoctor,jdbcType=SMALLINT},
+      </if>
+      <if test="nnurse != null">
+        #{nnurse,jdbcType=SMALLINT},
+      </if>
+      <if test="ntechnician != null">
+        #{ntechnician,jdbcType=SMALLINT},
+      </if>
+      <if test="nbed != null">
+        #{nbed,jdbcType=SMALLINT},
+      </if>
+      <if test="advamt != null">
+        #{advamt,jdbcType=DECIMAL},
+      </if>
+      <if test="zone != null">
+        #{zone,jdbcType=SMALLINT},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Ward">
+    <!--@mbg.generated-->
+    update Ward
+    <set>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="inscode != null">
+        InsCode = #{inscode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        Phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="contactby != null">
+        ContactBy = #{contactby,jdbcType=VARCHAR},
+      </if>
+      <if test="ndoctor != null">
+        nDoctor = #{ndoctor,jdbcType=SMALLINT},
+      </if>
+      <if test="nnurse != null">
+        nNurse = #{nnurse,jdbcType=SMALLINT},
+      </if>
+      <if test="ntechnician != null">
+        nTechnician = #{ntechnician,jdbcType=SMALLINT},
+      </if>
+      <if test="nbed != null">
+        nBed = #{nbed,jdbcType=SMALLINT},
+      </if>
+      <if test="advamt != null">
+        AdvAmt = #{advamt,jdbcType=DECIMAL},
+      </if>
+      <if test="zone != null">
+        [Zone] = #{zone,jdbcType=SMALLINT},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where WardId = #{wardid,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Ward">
+    <!--@mbg.generated-->
+    update Ward
+    set Code = #{code,jdbcType=VARCHAR},
+      InsCode = #{inscode,jdbcType=VARCHAR},
+      [Name] = #{name,jdbcType=VARCHAR},
+      Phone = #{phone,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      ContactBy = #{contactby,jdbcType=VARCHAR},
+      nDoctor = #{ndoctor,jdbcType=SMALLINT},
+      nNurse = #{nnurse,jdbcType=SMALLINT},
+      nTechnician = #{ntechnician,jdbcType=SMALLINT},
+      nBed = #{nbed,jdbcType=SMALLINT},
+      AdvAmt = #{advamt,jdbcType=DECIMAL},
+      [Zone] = #{zone,jdbcType=SMALLINT},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where WardId = #{wardid,jdbcType=SMALLINT}
+  </update>
+</mapper>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.UserGroupMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.UserGroup">
+    <!--@mbg.generated-->
+    <!--@Table UserGroup-->
+    <id column="UserId" jdbcType="INTEGER" property="userid" />
+    <id column="GroupId" jdbcType="SMALLINT" property="groupid" />
+    <result column="UserGrpId" jdbcType="BIGINT" property="usergrpid" />
+    <result column="OnDate" jdbcType="TIMESTAMP" property="ondate" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    UserId, GroupId, UserGrpId, OnDate, [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from UserGroup
+    where UserId = #{userid,jdbcType=INTEGER}
+      and GroupId = #{groupid,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map">
+    <!--@mbg.generated-->
+    delete from UserGroup
+    where UserId = #{userid,jdbcType=INTEGER}
+      and GroupId = #{groupid,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="org.example.model.UserGroup">
+    <!--@mbg.generated-->
+    insert into UserGroup (UserId, GroupId, UserGrpId, 
+      OnDate, [Status])
+    values (#{userid,jdbcType=INTEGER}, #{groupid,jdbcType=SMALLINT}, #{usergrpid,jdbcType=BIGINT}, 
+      #{ondate,jdbcType=TIMESTAMP}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.example.model.UserGroup">
+    <!--@mbg.generated-->
+    insert into UserGroup
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        UserId,
+      </if>
+      <if test="groupid != null">
+        GroupId,
+      </if>
+      <if test="usergrpid != null">
+        UserGrpId,
+      </if>
+      <if test="ondate != null">
+        OnDate,
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=SMALLINT},
+      </if>
+      <if test="usergrpid != null">
+        #{usergrpid,jdbcType=BIGINT},
+      </if>
+      <if test="ondate != null">
+        #{ondate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.UserGroup">
+    <!--@mbg.generated-->
+    update UserGroup
+    <set>
+      <if test="usergrpid != null">
+        UserGrpId = #{usergrpid,jdbcType=BIGINT},
+      </if>
+      <if test="ondate != null">
+        OnDate = #{ondate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where UserId = #{userid,jdbcType=INTEGER}
+      and GroupId = #{groupid,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.UserGroup">
+    <!--@mbg.generated-->
+    update UserGroup
+    set UserGrpId = #{usergrpid,jdbcType=BIGINT},
+      OnDate = #{ondate,jdbcType=TIMESTAMP},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where UserId = #{userid,jdbcType=INTEGER}
+      and GroupId = #{groupid,jdbcType=SMALLINT}
+  </update>
+</mapper>

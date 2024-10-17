@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.WardUnitMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.WardUnit">
+    <!--@mbg.generated-->
+    <!--@Table WardUnit-->
+    <id column="UnitId" jdbcType="SMALLINT" property="unitid" />
+    <result column="WardId" jdbcType="SMALLINT" property="wardid" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Index" jdbcType="TINYINT" property="index" />
+    <result column="TmlId" jdbcType="SMALLINT" property="tmlid" />
+    <result column="QueueId" jdbcType="SMALLINT" property="queueid" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    UnitId, WardId, Code, [Name], [Index], TmlId, QueueId, [Type], [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from WardUnit
+    where UnitId = #{unitid,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbg.generated-->
+    delete from WardUnit
+    where UnitId = #{unitid,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" keyColumn="UnitId" keyProperty="unitid" parameterType="org.example.model.WardUnit" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into WardUnit (WardId, Code, [Name], 
+      [Index], TmlId, QueueId, 
+      [Type], [Attribute], [Status]
+      )
+    values (#{wardid,jdbcType=SMALLINT}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{index,jdbcType=TINYINT}, #{tmlid,jdbcType=SMALLINT}, #{queueid,jdbcType=SMALLINT}, 
+      #{type,jdbcType=SMALLINT}, #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="UnitId" keyProperty="unitid" parameterType="org.example.model.WardUnit" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into WardUnit
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="wardid != null">
+        WardId,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="index != null">
+        [Index],
+      </if>
+      <if test="tmlid != null">
+        TmlId,
+      </if>
+      <if test="queueid != null">
+        QueueId,
+      </if>
+      <if test="type != null">
+        [Type],
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="wardid != null">
+        #{wardid,jdbcType=SMALLINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="index != null">
+        #{index,jdbcType=TINYINT},
+      </if>
+      <if test="tmlid != null">
+        #{tmlid,jdbcType=SMALLINT},
+      </if>
+      <if test="queueid != null">
+        #{queueid,jdbcType=SMALLINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.WardUnit">
+    <!--@mbg.generated-->
+    update WardUnit
+    <set>
+      <if test="wardid != null">
+        WardId = #{wardid,jdbcType=SMALLINT},
+      </if>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="index != null">
+        [Index] = #{index,jdbcType=TINYINT},
+      </if>
+      <if test="tmlid != null">
+        TmlId = #{tmlid,jdbcType=SMALLINT},
+      </if>
+      <if test="queueid != null">
+        QueueId = #{queueid,jdbcType=SMALLINT},
+      </if>
+      <if test="type != null">
+        [Type] = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where UnitId = #{unitid,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.WardUnit">
+    <!--@mbg.generated-->
+    update WardUnit
+    set WardId = #{wardid,jdbcType=SMALLINT},
+      Code = #{code,jdbcType=VARCHAR},
+      [Name] = #{name,jdbcType=VARCHAR},
+      [Index] = #{index,jdbcType=TINYINT},
+      TmlId = #{tmlid,jdbcType=SMALLINT},
+      QueueId = #{queueid,jdbcType=SMALLINT},
+      [Type] = #{type,jdbcType=SMALLINT},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where UnitId = #{unitid,jdbcType=SMALLINT}
+  </update>
+</mapper>

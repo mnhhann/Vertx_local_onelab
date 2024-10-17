@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.User">
+    <!--@mbg.generated-->
+    <!--@Table [User]-->
+    <id column="UserId" jdbcType="INTEGER" property="userid" />
+    <result column="StaffId" jdbcType="INTEGER" property="staffid" />
+    <result column="CustomerId" jdbcType="BIGINT" property="customerid" />
+    <result column="Type" jdbcType="TINYINT" property="type" />
+    <result column="Account" jdbcType="VARCHAR" property="account" />
+    <result column="Password" jdbcType="VARCHAR" property="password" />
+    <result column="FirstName" jdbcType="VARCHAR" property="firstname" />
+    <result column="LastName" jdbcType="VARCHAR" property="lastname" />
+    <result column="ParentUserId" jdbcType="INTEGER" property="parentuserid" />
+    <result column="ZaloId" jdbcType="VARCHAR" property="zaloid" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    UserId, StaffId, CustomerId, [Type], Account, [Password], FirstName, LastName, ParentUserId, 
+    ZaloId, [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from [User]
+    where UserId = #{userid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from [User]
+    where UserId = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="UserId" keyProperty="userid" parameterType="org.example.model.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into [User] (StaffId, CustomerId, [Type], 
+      Account, [Password], FirstName, 
+      LastName, ParentUserId, ZaloId, 
+      [Status])
+    values (#{staffid,jdbcType=INTEGER}, #{customerid,jdbcType=BIGINT}, #{type,jdbcType=TINYINT}, 
+      #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{firstname,jdbcType=VARCHAR}, 
+      #{lastname,jdbcType=VARCHAR}, #{parentuserid,jdbcType=INTEGER}, #{zaloid,jdbcType=VARCHAR}, 
+      #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="UserId" keyProperty="userid" parameterType="org.example.model.User" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into [User]
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="staffid != null">
+        StaffId,
+      </if>
+      <if test="customerid != null">
+        CustomerId,
+      </if>
+      <if test="type != null">
+        [Type],
+      </if>
+      <if test="account != null">
+        Account,
+      </if>
+      <if test="password != null">
+        [Password],
+      </if>
+      <if test="firstname != null">
+        FirstName,
+      </if>
+      <if test="lastname != null">
+        LastName,
+      </if>
+      <if test="parentuserid != null">
+        ParentUserId,
+      </if>
+      <if test="zaloid != null">
+        ZaloId,
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="staffid != null">
+        #{staffid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="firstname != null">
+        #{firstname,jdbcType=VARCHAR},
+      </if>
+      <if test="lastname != null">
+        #{lastname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentuserid != null">
+        #{parentuserid,jdbcType=INTEGER},
+      </if>
+      <if test="zaloid != null">
+        #{zaloid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.User">
+    <!--@mbg.generated-->
+    update [User]
+    <set>
+      <if test="staffid != null">
+        StaffId = #{staffid,jdbcType=INTEGER},
+      </if>
+      <if test="customerid != null">
+        CustomerId = #{customerid,jdbcType=BIGINT},
+      </if>
+      <if test="type != null">
+        [Type] = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="account != null">
+        Account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        [Password] = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="firstname != null">
+        FirstName = #{firstname,jdbcType=VARCHAR},
+      </if>
+      <if test="lastname != null">
+        LastName = #{lastname,jdbcType=VARCHAR},
+      </if>
+      <if test="parentuserid != null">
+        ParentUserId = #{parentuserid,jdbcType=INTEGER},
+      </if>
+      <if test="zaloid != null">
+        ZaloId = #{zaloid,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where UserId = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.User">
+    <!--@mbg.generated-->
+    update [User]
+    set StaffId = #{staffid,jdbcType=INTEGER},
+      CustomerId = #{customerid,jdbcType=BIGINT},
+      [Type] = #{type,jdbcType=TINYINT},
+      Account = #{account,jdbcType=VARCHAR},
+      [Password] = #{password,jdbcType=VARCHAR},
+      FirstName = #{firstname,jdbcType=VARCHAR},
+      LastName = #{lastname,jdbcType=VARCHAR},
+      ParentUserId = #{parentuserid,jdbcType=INTEGER},
+      ZaloId = #{zaloid,jdbcType=VARCHAR},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where UserId = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>

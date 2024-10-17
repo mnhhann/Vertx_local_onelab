@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.StaffGroupMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.StaffGroup">
+    <!--@mbg.generated-->
+    <!--@Table StaffGroup-->
+    <id column="StaffGrpId" jdbcType="INTEGER" property="staffgrpid" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Type" jdbcType="SMALLINT" property="type" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="IsSystem" jdbcType="BIT" property="issystem" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    StaffGrpId, [Name], [Type], Description, IsSystem, [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from StaffGroup
+    where StaffGrpId = #{staffgrpid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from StaffGroup
+    where StaffGrpId = #{staffgrpid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="StaffGrpId" keyProperty="staffgrpid" parameterType="org.example.model.StaffGroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into StaffGroup ([Name], [Type], Description, 
+      IsSystem, [Status])
+    values (#{name,jdbcType=VARCHAR}, #{type,jdbcType=SMALLINT}, #{description,jdbcType=VARCHAR}, 
+      #{issystem,jdbcType=BIT}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="StaffGrpId" keyProperty="staffgrpid" parameterType="org.example.model.StaffGroup" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into StaffGroup
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="type != null">
+        [Type],
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="issystem != null">
+        IsSystem,
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="issystem != null">
+        #{issystem,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.StaffGroup">
+    <!--@mbg.generated-->
+    update StaffGroup
+    <set>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        [Type] = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="issystem != null">
+        IsSystem = #{issystem,jdbcType=BIT},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where StaffGrpId = #{staffgrpid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.StaffGroup">
+    <!--@mbg.generated-->
+    update StaffGroup
+    set [Name] = #{name,jdbcType=VARCHAR},
+      [Type] = #{type,jdbcType=SMALLINT},
+      Description = #{description,jdbcType=VARCHAR},
+      IsSystem = #{issystem,jdbcType=BIT},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where StaffGrpId = #{staffgrpid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.LabIndicatorMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.LabIndicator">
+    <!--@mbg.generated-->
+    <!--@Table LabIndicator-->
+    <id column="IndId" jdbcType="INTEGER" property="indid" />
+    <result column="IndGrpCode" jdbcType="VARCHAR" property="indgrpcode" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="MeasureUnit" jdbcType="VARCHAR" property="measureunit" />
+    <result column="ValueChild" jdbcType="VARCHAR" property="valuechild" />
+    <result column="ValueFemale" jdbcType="VARCHAR" property="valuefemale" />
+    <result column="ValueMale" jdbcType="VARCHAR" property="valuemale" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    IndId, IndGrpCode, Code, [Name], MeasureUnit, ValueChild, ValueFemale, ValueMale, 
+    [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from LabIndicator
+    where IndId = #{indid,jdbcType=INTEGER}
+  </select>
+  <select id="getAllLabIndicators" resultMap="BaseResultMap">
+    SELECT * FROM dbo.LabIndicator
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from LabIndicator
+    where IndId = #{indid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="IndId" keyProperty="indid" parameterType="org.example.model.LabIndicator" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabIndicator (IndGrpCode, Code, [Name], 
+      MeasureUnit, ValueChild, ValueFemale, 
+      ValueMale, [Status])
+    values (#{indgrpcode,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{measureunit,jdbcType=VARCHAR}, #{valuechild,jdbcType=VARCHAR}, #{valuefemale,jdbcType=VARCHAR}, 
+      #{valuemale,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="IndId" keyProperty="indid" parameterType="org.example.model.LabIndicator" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabIndicator
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="indgrpcode != null">
+        IndGrpCode,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="measureunit != null">
+        MeasureUnit,
+      </if>
+      <if test="valuechild != null">
+        ValueChild,
+      </if>
+      <if test="valuefemale != null">
+        ValueFemale,
+      </if>
+      <if test="valuemale != null">
+        ValueMale,
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="indgrpcode != null">
+        #{indgrpcode,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="measureunit != null">
+        #{measureunit,jdbcType=VARCHAR},
+      </if>
+      <if test="valuechild != null">
+        #{valuechild,jdbcType=VARCHAR},
+      </if>
+      <if test="valuefemale != null">
+        #{valuefemale,jdbcType=VARCHAR},
+      </if>
+      <if test="valuemale != null">
+        #{valuemale,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.LabIndicator">
+    <!--@mbg.generated-->
+    update LabIndicator
+    <set>
+      <if test="indgrpcode != null">
+        IndGrpCode = #{indgrpcode,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="measureunit != null">
+        MeasureUnit = #{measureunit,jdbcType=VARCHAR},
+      </if>
+      <if test="valuechild != null">
+        ValueChild = #{valuechild,jdbcType=VARCHAR},
+      </if>
+      <if test="valuefemale != null">
+        ValueFemale = #{valuefemale,jdbcType=VARCHAR},
+      </if>
+      <if test="valuemale != null">
+        ValueMale = #{valuemale,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where IndId = #{indid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.LabIndicator">
+    <!--@mbg.generated-->
+    update LabIndicator
+    set IndGrpCode = #{indgrpcode,jdbcType=VARCHAR},
+      Code = #{code,jdbcType=VARCHAR},
+      [Name] = #{name,jdbcType=VARCHAR},
+      MeasureUnit = #{measureunit,jdbcType=VARCHAR},
+      ValueChild = #{valuechild,jdbcType=VARCHAR},
+      ValueFemale = #{valuefemale,jdbcType=VARCHAR},
+      ValueMale = #{valuemale,jdbcType=VARCHAR},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where IndId = #{indid,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.ContractMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Contract">
+    <!--@mbg.generated-->
+    <!--@Table Contract-->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="MedProviderId" jdbcType="BIGINT" property="medproviderid" />
+    <result column="CreateOn" jdbcType="TIMESTAMP" property="createon" />
+    <result column="CreatedById" jdbcType="INTEGER" property="createdbyid" />
+    <result column="CreateAt" jdbcType="VARCHAR" property="createat" />
+    <result column="FrDate" jdbcType="DATE" property="frdate" />
+    <result column="ToDate" jdbcType="DATE" property="todate" />
+    <result column="SignOn" jdbcType="TIMESTAMP" property="signon" />
+    <result column="QtyTest" jdbcType="SMALLINT" property="qtytest" />
+    <result column="DayAffterPay" jdbcType="TIMESTAMP" property="dayaffterpay" />
+    <result column="StmId" jdbcType="BIGINT" property="stmid" />
+    <result column="DiscountRatio" jdbcType="DECIMAL" property="discountratio" />
+    <result column="AccountingFollowById" jdbcType="INTEGER" property="accountingfollowbyid" />
+    <result column="GetTestOn" jdbcType="TIMESTAMP" property="getteston" />
+    <result column="GetTestById" jdbcType="INTEGER" property="gettestbyid" />
+    <result column="GetTestAt" jdbcType="VARCHAR" property="gettestat" />
+    <result column="SaleById" jdbcType="INTEGER" property="salebyid" />
+    <result column="PdfUrl" jdbcType="VARCHAR" property="pdfurl" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, Code, [Name], MedProviderId, CreateOn, CreatedById, CreateAt, FrDate, ToDate, 
+    SignOn, QtyTest, DayAffterPay, StmId, DiscountRatio, AccountingFollowById, GetTestOn, 
+    GetTestById, GetTestAt, SaleById, PdfUrl, [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Contract
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="getAllContracts" resultMap="BaseResultMap">
+    SELECT * FROM dbo.Contract
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from Contract
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="org.example.model.Contract" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Contract (Code, [Name], MedProviderId, 
+      CreateOn, CreatedById, CreateAt, 
+      FrDate, ToDate, SignOn, 
+      QtyTest, DayAffterPay, StmId, 
+      DiscountRatio, AccountingFollowById, GetTestOn, 
+      GetTestById, GetTestAt, SaleById, 
+      PdfUrl, [Attribute], [Status]
+      )
+    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{medproviderid,jdbcType=BIGINT}, 
+      #{createon,jdbcType=TIMESTAMP}, #{createdbyid,jdbcType=INTEGER}, #{createat,jdbcType=VARCHAR}, 
+      #{frdate,jdbcType=DATE}, #{todate,jdbcType=DATE}, #{signon,jdbcType=TIMESTAMP}, 
+      #{qtytest,jdbcType=SMALLINT}, #{dayaffterpay,jdbcType=TIMESTAMP}, #{stmid,jdbcType=BIGINT}, 
+      #{discountratio,jdbcType=DECIMAL}, #{accountingfollowbyid,jdbcType=INTEGER}, #{getteston,jdbcType=TIMESTAMP}, 
+      #{gettestbyid,jdbcType=INTEGER}, #{gettestat,jdbcType=VARCHAR}, #{salebyid,jdbcType=INTEGER}, 
+      #{pdfurl,jdbcType=VARCHAR}, #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="org.example.model.Contract" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Contract
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="medproviderid != null">
+        MedProviderId,
+      </if>
+      <if test="createon != null">
+        CreateOn,
+      </if>
+      <if test="createdbyid != null">
+        CreatedById,
+      </if>
+      <if test="createat != null">
+        CreateAt,
+      </if>
+      <if test="frdate != null">
+        FrDate,
+      </if>
+      <if test="todate != null">
+        ToDate,
+      </if>
+      <if test="signon != null">
+        SignOn,
+      </if>
+      <if test="qtytest != null">
+        QtyTest,
+      </if>
+      <if test="dayaffterpay != null">
+        DayAffterPay,
+      </if>
+      <if test="stmid != null">
+        StmId,
+      </if>
+      <if test="discountratio != null">
+        DiscountRatio,
+      </if>
+      <if test="accountingfollowbyid != null">
+        AccountingFollowById,
+      </if>
+      <if test="getteston != null">
+        GetTestOn,
+      </if>
+      <if test="gettestbyid != null">
+        GetTestById,
+      </if>
+      <if test="gettestat != null">
+        GetTestAt,
+      </if>
+      <if test="salebyid != null">
+        SaleById,
+      </if>
+      <if test="pdfurl != null">
+        PdfUrl,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="medproviderid != null">
+        #{medproviderid,jdbcType=BIGINT},
+      </if>
+      <if test="createon != null">
+        #{createon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        #{createdbyid,jdbcType=INTEGER},
+      </if>
+      <if test="createat != null">
+        #{createat,jdbcType=VARCHAR},
+      </if>
+      <if test="frdate != null">
+        #{frdate,jdbcType=DATE},
+      </if>
+      <if test="todate != null">
+        #{todate,jdbcType=DATE},
+      </if>
+      <if test="signon != null">
+        #{signon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qtytest != null">
+        #{qtytest,jdbcType=SMALLINT},
+      </if>
+      <if test="dayaffterpay != null">
+        #{dayaffterpay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stmid != null">
+        #{stmid,jdbcType=BIGINT},
+      </if>
+      <if test="discountratio != null">
+        #{discountratio,jdbcType=DECIMAL},
+      </if>
+      <if test="accountingfollowbyid != null">
+        #{accountingfollowbyid,jdbcType=INTEGER},
+      </if>
+      <if test="getteston != null">
+        #{getteston,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gettestbyid != null">
+        #{gettestbyid,jdbcType=INTEGER},
+      </if>
+      <if test="gettestat != null">
+        #{gettestat,jdbcType=VARCHAR},
+      </if>
+      <if test="salebyid != null">
+        #{salebyid,jdbcType=INTEGER},
+      </if>
+      <if test="pdfurl != null">
+        #{pdfurl,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Contract">
+    <!--@mbg.generated-->
+    update Contract
+    <set>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="medproviderid != null">
+        MedProviderId = #{medproviderid,jdbcType=BIGINT},
+      </if>
+      <if test="createon != null">
+        CreateOn = #{createon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createdbyid != null">
+        CreatedById = #{createdbyid,jdbcType=INTEGER},
+      </if>
+      <if test="createat != null">
+        CreateAt = #{createat,jdbcType=VARCHAR},
+      </if>
+      <if test="frdate != null">
+        FrDate = #{frdate,jdbcType=DATE},
+      </if>
+      <if test="todate != null">
+        ToDate = #{todate,jdbcType=DATE},
+      </if>
+      <if test="signon != null">
+        SignOn = #{signon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="qtytest != null">
+        QtyTest = #{qtytest,jdbcType=SMALLINT},
+      </if>
+      <if test="dayaffterpay != null">
+        DayAffterPay = #{dayaffterpay,jdbcType=TIMESTAMP},
+      </if>
+      <if test="stmid != null">
+        StmId = #{stmid,jdbcType=BIGINT},
+      </if>
+      <if test="discountratio != null">
+        DiscountRatio = #{discountratio,jdbcType=DECIMAL},
+      </if>
+      <if test="accountingfollowbyid != null">
+        AccountingFollowById = #{accountingfollowbyid,jdbcType=INTEGER},
+      </if>
+      <if test="getteston != null">
+        GetTestOn = #{getteston,jdbcType=TIMESTAMP},
+      </if>
+      <if test="gettestbyid != null">
+        GetTestById = #{gettestbyid,jdbcType=INTEGER},
+      </if>
+      <if test="gettestat != null">
+        GetTestAt = #{gettestat,jdbcType=VARCHAR},
+      </if>
+      <if test="salebyid != null">
+        SaleById = #{salebyid,jdbcType=INTEGER},
+      </if>
+      <if test="pdfurl != null">
+        PdfUrl = #{pdfurl,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Contract">
+    <!--@mbg.generated-->
+    update Contract
+    set Code = #{code,jdbcType=VARCHAR},
+      [Name] = #{name,jdbcType=VARCHAR},
+      MedProviderId = #{medproviderid,jdbcType=BIGINT},
+      CreateOn = #{createon,jdbcType=TIMESTAMP},
+      CreatedById = #{createdbyid,jdbcType=INTEGER},
+      CreateAt = #{createat,jdbcType=VARCHAR},
+      FrDate = #{frdate,jdbcType=DATE},
+      ToDate = #{todate,jdbcType=DATE},
+      SignOn = #{signon,jdbcType=TIMESTAMP},
+      QtyTest = #{qtytest,jdbcType=SMALLINT},
+      DayAffterPay = #{dayaffterpay,jdbcType=TIMESTAMP},
+      StmId = #{stmid,jdbcType=BIGINT},
+      DiscountRatio = #{discountratio,jdbcType=DECIMAL},
+      AccountingFollowById = #{accountingfollowbyid,jdbcType=INTEGER},
+      GetTestOn = #{getteston,jdbcType=TIMESTAMP},
+      GetTestById = #{gettestbyid,jdbcType=INTEGER},
+      GetTestAt = #{gettestat,jdbcType=VARCHAR},
+      SaleById = #{salebyid,jdbcType=INTEGER},
+      PdfUrl = #{pdfurl,jdbcType=VARCHAR},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

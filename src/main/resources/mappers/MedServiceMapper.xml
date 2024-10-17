@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.MedServiceMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.MedService">
+    <!--@mbg.generated-->
+    <!--@Table MedService-->
+    <id column="MedServiceId" jdbcType="INTEGER" property="medserviceid" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="TypeL1" jdbcType="SMALLINT" property="typel1" />
+    <result column="TypeL2" jdbcType="SMALLINT" property="typel2" />
+    <result column="TypeL3" jdbcType="SMALLINT" property="typel3" />
+    <result column="TypeL4" jdbcType="SMALLINT" property="typel4" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="Unit" jdbcType="VARCHAR" property="unit" />
+    <result column="NationalCode" jdbcType="VARCHAR" property="nationalcode" />
+    <result column="Duration" jdbcType="SMALLINT" property="duration" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    MedServiceId, Code, TypeL1, TypeL2, TypeL3, TypeL4, Description, Unit, NationalCode, 
+    Duration, [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from MedService
+    where MedServiceId = #{medserviceid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from MedService
+    where MedServiceId = #{medserviceid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="MedServiceId" keyProperty="medserviceid" parameterType="org.example.model.MedService" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into MedService (Code, TypeL1, TypeL2, 
+      TypeL3, TypeL4, Description, 
+      Unit, NationalCode, Duration, 
+      [Attribute], [Status])
+    values (#{code,jdbcType=VARCHAR}, #{typel1,jdbcType=SMALLINT}, #{typel2,jdbcType=SMALLINT}, 
+      #{typel3,jdbcType=SMALLINT}, #{typel4,jdbcType=SMALLINT}, #{description,jdbcType=VARCHAR}, 
+      #{unit,jdbcType=VARCHAR}, #{nationalcode,jdbcType=VARCHAR}, #{duration,jdbcType=SMALLINT}, 
+      #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="MedServiceId" keyProperty="medserviceid" parameterType="org.example.model.MedService" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into MedService
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="typel1 != null">
+        TypeL1,
+      </if>
+      <if test="typel2 != null">
+        TypeL2,
+      </if>
+      <if test="typel3 != null">
+        TypeL3,
+      </if>
+      <if test="typel4 != null">
+        TypeL4,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="unit != null">
+        Unit,
+      </if>
+      <if test="nationalcode != null">
+        NationalCode,
+      </if>
+      <if test="duration != null">
+        Duration,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="typel1 != null">
+        #{typel1,jdbcType=SMALLINT},
+      </if>
+      <if test="typel2 != null">
+        #{typel2,jdbcType=SMALLINT},
+      </if>
+      <if test="typel3 != null">
+        #{typel3,jdbcType=SMALLINT},
+      </if>
+      <if test="typel4 != null">
+        #{typel4,jdbcType=SMALLINT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalcode != null">
+        #{nationalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        #{duration,jdbcType=SMALLINT},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.MedService">
+    <!--@mbg.generated-->
+    update MedService
+    <set>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="typel1 != null">
+        TypeL1 = #{typel1,jdbcType=SMALLINT},
+      </if>
+      <if test="typel2 != null">
+        TypeL2 = #{typel2,jdbcType=SMALLINT},
+      </if>
+      <if test="typel3 != null">
+        TypeL3 = #{typel3,jdbcType=SMALLINT},
+      </if>
+      <if test="typel4 != null">
+        TypeL4 = #{typel4,jdbcType=SMALLINT},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        Unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="nationalcode != null">
+        NationalCode = #{nationalcode,jdbcType=VARCHAR},
+      </if>
+      <if test="duration != null">
+        Duration = #{duration,jdbcType=SMALLINT},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where MedServiceId = #{medserviceid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.MedService">
+    <!--@mbg.generated-->
+    update MedService
+    set Code = #{code,jdbcType=VARCHAR},
+      TypeL1 = #{typel1,jdbcType=SMALLINT},
+      TypeL2 = #{typel2,jdbcType=SMALLINT},
+      TypeL3 = #{typel3,jdbcType=SMALLINT},
+      TypeL4 = #{typel4,jdbcType=SMALLINT},
+      Description = #{description,jdbcType=VARCHAR},
+      Unit = #{unit,jdbcType=VARCHAR},
+      NationalCode = #{nationalcode,jdbcType=VARCHAR},
+      Duration = #{duration,jdbcType=SMALLINT},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where MedServiceId = #{medserviceid,jdbcType=INTEGER}
+  </update>
+</mapper>

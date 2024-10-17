@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.LabExamResultMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.LabExamResult">
+    <!--@mbg.generated-->
+    <!--@Table LabExamResult-->
+    <id column="ExRltId" jdbcType="BIGINT" property="exrltid" />
+    <result column="ExItemId" jdbcType="BIGINT" property="exitemid" />
+    <result column="MedServiceId" jdbcType="INTEGER" property="medserviceid" />
+    <result column="IndId" jdbcType="INTEGER" property="indid" />
+    <result column="IndName" jdbcType="VARCHAR" property="indname" />
+    <result column="IndValue" jdbcType="VARCHAR" property="indvalue" />
+    <result column="MeasureUnit" jdbcType="VARCHAR" property="measureunit" />
+    <result column="IndNormalValue" jdbcType="VARCHAR" property="indnormalvalue" />
+    <result column="IsAbnormal" jdbcType="BIT" property="isabnormal" />
+    <result column="Notes" jdbcType="VARCHAR" property="notes" />
+    <result column="SID" jdbcType="VARCHAR" property="sid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    ExRltId, ExItemId, MedServiceId, IndId, IndName, IndValue, MeasureUnit, IndNormalValue, 
+    IsAbnormal, Notes, SID
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from LabExamResult
+    where ExRltId = #{exrltid,jdbcType=BIGINT}
+  </select>
+  <select id="getAllLabExamResults" resultMap="BaseResultMap">
+    SELECT * FROM dbo.LabExamResult
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from LabExamResult
+    where ExRltId = #{exrltid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="ExRltId" keyProperty="exrltid" parameterType="org.example.model.LabExamResult" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabExamResult (ExItemId, MedServiceId, IndId, 
+      IndName, IndValue, MeasureUnit, 
+      IndNormalValue, IsAbnormal, Notes, 
+      SID)
+    values (#{exitemid,jdbcType=BIGINT}, #{medserviceid,jdbcType=INTEGER}, #{indid,jdbcType=INTEGER}, 
+      #{indname,jdbcType=VARCHAR}, #{indvalue,jdbcType=VARCHAR}, #{measureunit,jdbcType=VARCHAR}, 
+      #{indnormalvalue,jdbcType=VARCHAR}, #{isabnormal,jdbcType=BIT}, #{notes,jdbcType=VARCHAR}, 
+      #{sid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="ExRltId" keyProperty="exrltid" parameterType="org.example.model.LabExamResult" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into LabExamResult
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="exitemid != null">
+        ExItemId,
+      </if>
+      <if test="medserviceid != null">
+        MedServiceId,
+      </if>
+      <if test="indid != null">
+        IndId,
+      </if>
+      <if test="indname != null">
+        IndName,
+      </if>
+      <if test="indvalue != null">
+        IndValue,
+      </if>
+      <if test="measureunit != null">
+        MeasureUnit,
+      </if>
+      <if test="indnormalvalue != null">
+        IndNormalValue,
+      </if>
+      <if test="isabnormal != null">
+        IsAbnormal,
+      </if>
+      <if test="notes != null">
+        Notes,
+      </if>
+      <if test="sid != null">
+        SID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="exitemid != null">
+        #{exitemid,jdbcType=BIGINT},
+      </if>
+      <if test="medserviceid != null">
+        #{medserviceid,jdbcType=INTEGER},
+      </if>
+      <if test="indid != null">
+        #{indid,jdbcType=INTEGER},
+      </if>
+      <if test="indname != null">
+        #{indname,jdbcType=VARCHAR},
+      </if>
+      <if test="indvalue != null">
+        #{indvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="measureunit != null">
+        #{measureunit,jdbcType=VARCHAR},
+      </if>
+      <if test="indnormalvalue != null">
+        #{indnormalvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="isabnormal != null">
+        #{isabnormal,jdbcType=BIT},
+      </if>
+      <if test="notes != null">
+        #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        #{sid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.LabExamResult">
+    <!--@mbg.generated-->
+    update LabExamResult
+    <set>
+      <if test="exitemid != null">
+        ExItemId = #{exitemid,jdbcType=BIGINT},
+      </if>
+      <if test="medserviceid != null">
+        MedServiceId = #{medserviceid,jdbcType=INTEGER},
+      </if>
+      <if test="indid != null">
+        IndId = #{indid,jdbcType=INTEGER},
+      </if>
+      <if test="indname != null">
+        IndName = #{indname,jdbcType=VARCHAR},
+      </if>
+      <if test="indvalue != null">
+        IndValue = #{indvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="measureunit != null">
+        MeasureUnit = #{measureunit,jdbcType=VARCHAR},
+      </if>
+      <if test="indnormalvalue != null">
+        IndNormalValue = #{indnormalvalue,jdbcType=VARCHAR},
+      </if>
+      <if test="isabnormal != null">
+        IsAbnormal = #{isabnormal,jdbcType=BIT},
+      </if>
+      <if test="notes != null">
+        Notes = #{notes,jdbcType=VARCHAR},
+      </if>
+      <if test="sid != null">
+        SID = #{sid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ExRltId = #{exrltid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.LabExamResult">
+    <!--@mbg.generated-->
+    update LabExamResult
+    set ExItemId = #{exitemid,jdbcType=BIGINT},
+      MedServiceId = #{medserviceid,jdbcType=INTEGER},
+      IndId = #{indid,jdbcType=INTEGER},
+      IndName = #{indname,jdbcType=VARCHAR},
+      IndValue = #{indvalue,jdbcType=VARCHAR},
+      MeasureUnit = #{measureunit,jdbcType=VARCHAR},
+      IndNormalValue = #{indnormalvalue,jdbcType=VARCHAR},
+      IsAbnormal = #{isabnormal,jdbcType=BIT},
+      Notes = #{notes,jdbcType=VARCHAR},
+      SID = #{sid,jdbcType=VARCHAR}
+    where ExRltId = #{exrltid,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.ContractStaffMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.ContractStaff">
+    <!--@mbg.generated-->
+    <!--@Table ContractStaff-->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="ContractId" jdbcType="BIGINT" property="contractid" />
+    <result column="StaffId" jdbcType="INTEGER" property="staffid" />
+    <result column="StaffTitle" jdbcType="SMALLINT" property="stafftitle" />
+    <result column="StaffPosition" jdbcType="SMALLINT" property="staffposition" />
+    <result column="SignTitle" jdbcType="VARCHAR" property="signtitle" />
+    <result column="SignIndex" jdbcType="TINYINT" property="signindex" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, ContractId, StaffId, StaffTitle, StaffPosition, SignTitle, SignIndex, [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from ContractStaff
+    where Id = #{id,jdbcType=BIGINT}
+  </select>
+  <select id="getAllContractStaffs" resultMap="BaseResultMap">
+    SELECT * FROM dbo.ContractStaff
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from ContractStaff
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="Id" keyProperty="id" parameterType="org.example.model.ContractStaff" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ContractStaff (ContractId, StaffId, StaffTitle, 
+      StaffPosition, SignTitle, SignIndex, 
+      [Status])
+    values (#{contractid,jdbcType=BIGINT}, #{staffid,jdbcType=INTEGER}, #{stafftitle,jdbcType=SMALLINT}, 
+      #{staffposition,jdbcType=SMALLINT}, #{signtitle,jdbcType=VARCHAR}, #{signindex,jdbcType=TINYINT}, 
+      #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="org.example.model.ContractStaff" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into ContractStaff
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="contractid != null">
+        ContractId,
+      </if>
+      <if test="staffid != null">
+        StaffId,
+      </if>
+      <if test="stafftitle != null">
+        StaffTitle,
+      </if>
+      <if test="staffposition != null">
+        StaffPosition,
+      </if>
+      <if test="signtitle != null">
+        SignTitle,
+      </if>
+      <if test="signindex != null">
+        SignIndex,
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="contractid != null">
+        #{contractid,jdbcType=BIGINT},
+      </if>
+      <if test="staffid != null">
+        #{staffid,jdbcType=INTEGER},
+      </if>
+      <if test="stafftitle != null">
+        #{stafftitle,jdbcType=SMALLINT},
+      </if>
+      <if test="staffposition != null">
+        #{staffposition,jdbcType=SMALLINT},
+      </if>
+      <if test="signtitle != null">
+        #{signtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="signindex != null">
+        #{signindex,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.ContractStaff">
+    <!--@mbg.generated-->
+    update ContractStaff
+    <set>
+      <if test="contractid != null">
+        ContractId = #{contractid,jdbcType=BIGINT},
+      </if>
+      <if test="staffid != null">
+        StaffId = #{staffid,jdbcType=INTEGER},
+      </if>
+      <if test="stafftitle != null">
+        StaffTitle = #{stafftitle,jdbcType=SMALLINT},
+      </if>
+      <if test="staffposition != null">
+        StaffPosition = #{staffposition,jdbcType=SMALLINT},
+      </if>
+      <if test="signtitle != null">
+        SignTitle = #{signtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="signindex != null">
+        SignIndex = #{signindex,jdbcType=TINYINT},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.ContractStaff">
+    <!--@mbg.generated-->
+    update ContractStaff
+    set ContractId = #{contractid,jdbcType=BIGINT},
+      StaffId = #{staffid,jdbcType=INTEGER},
+      StaffTitle = #{stafftitle,jdbcType=SMALLINT},
+      StaffPosition = #{staffposition,jdbcType=SMALLINT},
+      SignTitle = #{signtitle,jdbcType=VARCHAR},
+      SignIndex = #{signindex,jdbcType=TINYINT},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

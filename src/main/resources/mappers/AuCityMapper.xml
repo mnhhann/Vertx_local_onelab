@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.AuCityMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.AuCity">
+    <!--@mbg.generated-->
+    <!--@Table AuCity-->
+    <id column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Country" jdbcType="VARCHAR" property="country" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Region" jdbcType="VARCHAR" property="region" />
+    <result column="Abbr" jdbcType="VARCHAR" property="abbr" />
+    <result column="IsSystem" jdbcType="BIT" property="issystem" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Code, Country, [Name], Region, Abbr, IsSystem
+  </sql>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select
+    <include refid="Base_Column_List" />
+    from AuCity
+    where Code = #{code,jdbcType=VARCHAR}
+  </select>
+
+  <select id="getAllCities" resultMap="BaseResultMap">
+    SELECT * FROM dbo.AuCity
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from AuCity
+    where Code = #{code,jdbcType=VARCHAR}
+  </delete>
+
+  <insert id="insert" keyColumn="Code" keyProperty="code" parameterType="org.example.model.AuCity" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into AuCity (
+        Code,
+        Country,
+        [Name],
+        Region,
+        Abbr,
+        IsSystem
+    )
+    values (
+        #{code},
+        #{country,jdbcType=VARCHAR},
+        #{name,jdbcType=VARCHAR},
+        #{region,jdbcType=VARCHAR},
+        #{abbr,jdbcType=VARCHAR},
+        #{issystem,jdbcType=BIT}
+    )
+  </insert>
+
+  <insert id="insertSelective" keyColumn="Code" keyProperty="code" parameterType="org.example.model.AuCity" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into AuCity
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="country != null">
+        Country,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="region != null">
+        Region,
+      </if>
+      <if test="abbr != null">
+        Abbr,
+      </if>
+      <if test="issystem != null">
+        IsSystem,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="country != null">
+        #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="abbr != null">
+        #{abbr,jdbcType=VARCHAR},
+      </if>
+      <if test="issystem != null">
+        #{issystem,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.AuCity">
+    <!--@mbg.generated-->
+    update AuCity
+    <set>
+      <if test="country != null">
+        Country = #{country,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="region != null">
+        Region = #{region,jdbcType=VARCHAR},
+      </if>
+      <if test="abbr != null">
+        Abbr = #{abbr,jdbcType=VARCHAR},
+      </if>
+      <if test="issystem != null">
+        IsSystem = #{issystem,jdbcType=BIT},
+      </if>
+    </set>
+    where Code = #{code,jdbcType=VARCHAR}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="org.example.model.AuCity">
+    <!--@mbg.generated-->
+    update AuCity
+    set Country = #{country,jdbcType=VARCHAR},
+      [Name] = #{name,jdbcType=VARCHAR},
+      Region = #{region,jdbcType=VARCHAR},
+      Abbr = #{abbr,jdbcType=VARCHAR},
+      IsSystem = #{issystem,jdbcType=BIT}
+    where Code = #{code,jdbcType=VARCHAR}
+  </update>
+</mapper>

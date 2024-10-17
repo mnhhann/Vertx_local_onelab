@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.PermissionMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Permission">
+    <!--@mbg.generated-->
+    <!--@Table Permission-->
+    <id column="PermissionId" jdbcType="INTEGER" property="permissionid" />
+    <result column="ModuleId" jdbcType="SMALLINT" property="moduleid" />
+    <result column="FunctionId" jdbcType="SMALLINT" property="functionid" />
+    <result column="GroupId" jdbcType="SMALLINT" property="groupid" />
+    <result column="Role" jdbcType="SMALLINT" property="role" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    PermissionId, ModuleId, FunctionId, GroupId, [Role], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Permission
+    where PermissionId = #{permissionid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from Permission
+    where PermissionId = #{permissionid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="PermissionId" keyProperty="permissionid" parameterType="org.example.model.Permission" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Permission (ModuleId, FunctionId, GroupId, 
+      [Role], [Status])
+    values (#{moduleid,jdbcType=SMALLINT}, #{functionid,jdbcType=SMALLINT}, #{groupid,jdbcType=SMALLINT}, 
+      #{role,jdbcType=SMALLINT}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="PermissionId" keyProperty="permissionid" parameterType="org.example.model.Permission" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Permission
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        ModuleId,
+      </if>
+      <if test="functionid != null">
+        FunctionId,
+      </if>
+      <if test="groupid != null">
+        GroupId,
+      </if>
+      <if test="role != null">
+        [Role],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moduleid != null">
+        #{moduleid,jdbcType=SMALLINT},
+      </if>
+      <if test="functionid != null">
+        #{functionid,jdbcType=SMALLINT},
+      </if>
+      <if test="groupid != null">
+        #{groupid,jdbcType=SMALLINT},
+      </if>
+      <if test="role != null">
+        #{role,jdbcType=SMALLINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Permission">
+    <!--@mbg.generated-->
+    update Permission
+    <set>
+      <if test="moduleid != null">
+        ModuleId = #{moduleid,jdbcType=SMALLINT},
+      </if>
+      <if test="functionid != null">
+        FunctionId = #{functionid,jdbcType=SMALLINT},
+      </if>
+      <if test="groupid != null">
+        GroupId = #{groupid,jdbcType=SMALLINT},
+      </if>
+      <if test="role != null">
+        [Role] = #{role,jdbcType=SMALLINT},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where PermissionId = #{permissionid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Permission">
+    <!--@mbg.generated-->
+    update Permission
+    set ModuleId = #{moduleid,jdbcType=SMALLINT},
+      FunctionId = #{functionid,jdbcType=SMALLINT},
+      GroupId = #{groupid,jdbcType=SMALLINT},
+      [Role] = #{role,jdbcType=SMALLINT},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where PermissionId = #{permissionid,jdbcType=INTEGER}
+  </update>
+</mapper>

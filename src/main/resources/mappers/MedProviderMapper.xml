@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.MedProviderMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.MedProvider">
+    <!--@mbg.generated-->
+    <!--@Table MedProvider-->
+    <id column="MedProviderId" jdbcType="BIGINT" property="medproviderid" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="InsCode" jdbcType="VARCHAR" property="inscode" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="AuCity" jdbcType="VARCHAR" property="aucity" />
+    <result column="AuDistrict" jdbcType="VARCHAR" property="audistrict" />
+    <result column="AuWard" jdbcType="VARCHAR" property="auward" />
+    <result column="ZipCode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="ParentCode" jdbcType="VARCHAR" property="parentcode" />
+    <result column="Rank" jdbcType="TINYINT" property="rank" />
+    <result column="RouteLevel" jdbcType="TINYINT" property="routelevel" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="PhoneNo" jdbcType="VARCHAR" property="phoneno" />
+    <result column="MobileNo" jdbcType="VARCHAR" property="mobileno" />
+    <result column="FaxNo" jdbcType="VARCHAR" property="faxno" />
+    <result column="ContactBy" jdbcType="VARCHAR" property="contactby" />
+    <result column="AccountingFollowBy" jdbcType="VARCHAR" property="accountingfollowby" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    MedProviderId, Code, InsCode, [Name], Address, AuCity, AuDistrict, AuWard, ZipCode, 
+    ParentCode, [Rank], RouteLevel, Email, PhoneNo, MobileNo, FaxNo, ContactBy, AccountingFollowBy, 
+    [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from MedProvider
+    where MedProviderId = #{medproviderid,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from MedProvider
+    where MedProviderId = #{medproviderid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyColumn="MedProviderId" keyProperty="medproviderid" parameterType="org.example.model.MedProvider" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into MedProvider (Code, InsCode, [Name], 
+      Address, AuCity, AuDistrict, 
+      AuWard, ZipCode, ParentCode, 
+      [Rank], RouteLevel, Email, 
+      PhoneNo, MobileNo, FaxNo, 
+      ContactBy, AccountingFollowBy, [Attribute], 
+      [Status])
+    values (#{code,jdbcType=VARCHAR}, #{inscode,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{aucity,jdbcType=VARCHAR}, #{audistrict,jdbcType=VARCHAR}, 
+      #{auward,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, #{parentcode,jdbcType=VARCHAR}, 
+      #{rank,jdbcType=TINYINT}, #{routelevel,jdbcType=TINYINT}, #{email,jdbcType=VARCHAR}, 
+      #{phoneno,jdbcType=VARCHAR}, #{mobileno,jdbcType=VARCHAR}, #{faxno,jdbcType=VARCHAR}, 
+      #{contactby,jdbcType=VARCHAR}, #{accountingfollowby,jdbcType=VARCHAR}, #{attribute,jdbcType=INTEGER}, 
+      #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="MedProviderId" keyProperty="medproviderid" parameterType="org.example.model.MedProvider" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into MedProvider
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="inscode != null">
+        InsCode,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="aucity != null">
+        AuCity,
+      </if>
+      <if test="audistrict != null">
+        AuDistrict,
+      </if>
+      <if test="auward != null">
+        AuWard,
+      </if>
+      <if test="zipcode != null">
+        ZipCode,
+      </if>
+      <if test="parentcode != null">
+        ParentCode,
+      </if>
+      <if test="rank != null">
+        [Rank],
+      </if>
+      <if test="routelevel != null">
+        RouteLevel,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="phoneno != null">
+        PhoneNo,
+      </if>
+      <if test="mobileno != null">
+        MobileNo,
+      </if>
+      <if test="faxno != null">
+        FaxNo,
+      </if>
+      <if test="contactby != null">
+        ContactBy,
+      </if>
+      <if test="accountingfollowby != null">
+        AccountingFollowBy,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="inscode != null">
+        #{inscode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="aucity != null">
+        #{aucity,jdbcType=VARCHAR},
+      </if>
+      <if test="audistrict != null">
+        #{audistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="auward != null">
+        #{auward,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentcode != null">
+        #{parentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        #{rank,jdbcType=TINYINT},
+      </if>
+      <if test="routelevel != null">
+        #{routelevel,jdbcType=TINYINT},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneno != null">
+        #{phoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="faxno != null">
+        #{faxno,jdbcType=VARCHAR},
+      </if>
+      <if test="contactby != null">
+        #{contactby,jdbcType=VARCHAR},
+      </if>
+      <if test="accountingfollowby != null">
+        #{accountingfollowby,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.MedProvider">
+    <!--@mbg.generated-->
+    update MedProvider
+    <set>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="inscode != null">
+        InsCode = #{inscode,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="aucity != null">
+        AuCity = #{aucity,jdbcType=VARCHAR},
+      </if>
+      <if test="audistrict != null">
+        AuDistrict = #{audistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="auward != null">
+        AuWard = #{auward,jdbcType=VARCHAR},
+      </if>
+      <if test="zipcode != null">
+        ZipCode = #{zipcode,jdbcType=VARCHAR},
+      </if>
+      <if test="parentcode != null">
+        ParentCode = #{parentcode,jdbcType=VARCHAR},
+      </if>
+      <if test="rank != null">
+        [Rank] = #{rank,jdbcType=TINYINT},
+      </if>
+      <if test="routelevel != null">
+        RouteLevel = #{routelevel,jdbcType=TINYINT},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="phoneno != null">
+        PhoneNo = #{phoneno,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        MobileNo = #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="faxno != null">
+        FaxNo = #{faxno,jdbcType=VARCHAR},
+      </if>
+      <if test="contactby != null">
+        ContactBy = #{contactby,jdbcType=VARCHAR},
+      </if>
+      <if test="accountingfollowby != null">
+        AccountingFollowBy = #{accountingfollowby,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where MedProviderId = #{medproviderid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.MedProvider">
+    <!--@mbg.generated-->
+    update MedProvider
+    set Code = #{code,jdbcType=VARCHAR},
+      InsCode = #{inscode,jdbcType=VARCHAR},
+      [Name] = #{name,jdbcType=VARCHAR},
+      Address = #{address,jdbcType=VARCHAR},
+      AuCity = #{aucity,jdbcType=VARCHAR},
+      AuDistrict = #{audistrict,jdbcType=VARCHAR},
+      AuWard = #{auward,jdbcType=VARCHAR},
+      ZipCode = #{zipcode,jdbcType=VARCHAR},
+      ParentCode = #{parentcode,jdbcType=VARCHAR},
+      [Rank] = #{rank,jdbcType=TINYINT},
+      RouteLevel = #{routelevel,jdbcType=TINYINT},
+      Email = #{email,jdbcType=VARCHAR},
+      PhoneNo = #{phoneno,jdbcType=VARCHAR},
+      MobileNo = #{mobileno,jdbcType=VARCHAR},
+      FaxNo = #{faxno,jdbcType=VARCHAR},
+      ContactBy = #{contactby,jdbcType=VARCHAR},
+      AccountingFollowBy = #{accountingfollowby,jdbcType=VARCHAR},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where MedProviderId = #{medproviderid,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.AuWardMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.AuWard">
+    <!--@mbg.generated-->
+    <!--@Table AuWard-->
+    <id column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="District" jdbcType="VARCHAR" property="district" />
+    <result column="Abbr" jdbcType="VARCHAR" property="abbr" />
+    <result column="IsSystem" jdbcType="BIT" property="issystem" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Code, [Name], District, Abbr, IsSystem
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from AuWard
+    where Code = #{code,jdbcType=VARCHAR}
+  </select>
+  <select id="getAllAuWards" resultMap="BaseResultMap">
+    SELECT * FROM dbo.AuWard
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    <!--@mbg.generated-->
+    delete from AuWard
+    where Code = #{code,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="org.example.model.AuWard">
+    <!--@mbg.generated-->
+    insert into AuWard (Code, [Name], District, 
+      Abbr, IsSystem)
+    values (#{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{abbr,jdbcType=VARCHAR}, #{issystem,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.example.model.AuWard">
+    <!--@mbg.generated-->
+    insert into AuWard
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="district != null">
+        District,
+      </if>
+      <if test="abbr != null">
+        Abbr,
+      </if>
+      <if test="issystem != null">
+        IsSystem,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="abbr != null">
+        #{abbr,jdbcType=VARCHAR},
+      </if>
+      <if test="issystem != null">
+        #{issystem,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.AuWard">
+    <!--@mbg.generated-->
+    update AuWard
+    <set>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="district != null">
+        District = #{district,jdbcType=VARCHAR},
+      </if>
+      <if test="abbr != null">
+        Abbr = #{abbr,jdbcType=VARCHAR},
+      </if>
+      <if test="issystem != null">
+        IsSystem = #{issystem,jdbcType=BIT},
+      </if>
+    </set>
+    where Code = #{code,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.AuWard">
+    <!--@mbg.generated-->
+    update AuWard
+    set [Name] = #{name,jdbcType=VARCHAR},
+      District = #{district,jdbcType=VARCHAR},
+      Abbr = #{abbr,jdbcType=VARCHAR},
+      IsSystem = #{issystem,jdbcType=BIT}
+    where Code = #{code,jdbcType=VARCHAR}
+  </update>
+</mapper>

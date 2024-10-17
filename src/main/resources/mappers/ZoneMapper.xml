@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.ZoneMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Zone">
+    <!--@mbg.generated-->
+    <!--@Table [Zone]-->
+    <id column="Code" jdbcType="SMALLINT" property="code" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="ZoneType" jdbcType="SMALLINT" property="zonetype" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Code, Description, ZoneType, [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from [Zone]
+    where Code = #{code,jdbcType=SMALLINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbg.generated-->
+    delete from [Zone]
+    where Code = #{code,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="org.example.model.Zone">
+    <!--@mbg.generated-->
+    insert into [Zone] (Code, Description, ZoneType, 
+      [Attribute], [Status])
+    values (#{code,jdbcType=SMALLINT}, #{description,jdbcType=VARCHAR}, #{zonetype,jdbcType=SMALLINT}, 
+      #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.example.model.Zone">
+    <!--@mbg.generated-->
+    insert into [Zone]
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="zonetype != null">
+        ZoneType,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=SMALLINT},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="zonetype != null">
+        #{zonetype,jdbcType=SMALLINT},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Zone">
+    <!--@mbg.generated-->
+    update [Zone]
+    <set>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="zonetype != null">
+        ZoneType = #{zonetype,jdbcType=SMALLINT},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where Code = #{code,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Zone">
+    <!--@mbg.generated-->
+    update [Zone]
+    set Description = #{description,jdbcType=VARCHAR},
+      ZoneType = #{zonetype,jdbcType=SMALLINT},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where Code = #{code,jdbcType=SMALLINT}
+  </update>
+</mapper>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.StmMedServiceMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.StmMedService">
+    <!--@mbg.generated-->
+    <!--@Table StmMedService-->
+    <id column="StmMedId" jdbcType="INTEGER" property="stmmedid" />
+    <result column="StmId" jdbcType="BIGINT" property="stmid" />
+    <result column="ServiceId" jdbcType="INTEGER" property="serviceid" />
+    <result column="ServiceName" jdbcType="VARCHAR" property="servicename" />
+    <result column="Price" jdbcType="DECIMAL" property="price" />
+    <result column="DiscountRatio" jdbcType="DECIMAL" property="discountratio" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    StmMedId, StmId, ServiceId, ServiceName, Price, DiscountRatio, [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from StmMedService
+    where StmMedId = #{stmmedid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from StmMedService
+    where StmMedId = #{stmmedid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="StmMedId" keyProperty="stmmedid" parameterType="org.example.model.StmMedService" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into StmMedService (StmId, ServiceId, ServiceName, 
+      Price, DiscountRatio, [Attribute], 
+      [Status])
+    values (#{stmid,jdbcType=BIGINT}, #{serviceid,jdbcType=INTEGER}, #{servicename,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{discountratio,jdbcType=DECIMAL}, #{attribute,jdbcType=INTEGER}, 
+      #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="StmMedId" keyProperty="stmmedid" parameterType="org.example.model.StmMedService" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into StmMedService
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="stmid != null">
+        StmId,
+      </if>
+      <if test="serviceid != null">
+        ServiceId,
+      </if>
+      <if test="servicename != null">
+        ServiceName,
+      </if>
+      <if test="price != null">
+        Price,
+      </if>
+      <if test="discountratio != null">
+        DiscountRatio,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="stmid != null">
+        #{stmid,jdbcType=BIGINT},
+      </if>
+      <if test="serviceid != null">
+        #{serviceid,jdbcType=INTEGER},
+      </if>
+      <if test="servicename != null">
+        #{servicename,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="discountratio != null">
+        #{discountratio,jdbcType=DECIMAL},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.StmMedService">
+    <!--@mbg.generated-->
+    update StmMedService
+    <set>
+      <if test="stmid != null">
+        StmId = #{stmid,jdbcType=BIGINT},
+      </if>
+      <if test="serviceid != null">
+        ServiceId = #{serviceid,jdbcType=INTEGER},
+      </if>
+      <if test="servicename != null">
+        ServiceName = #{servicename,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        Price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="discountratio != null">
+        DiscountRatio = #{discountratio,jdbcType=DECIMAL},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where StmMedId = #{stmmedid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.StmMedService">
+    <!--@mbg.generated-->
+    update StmMedService
+    set StmId = #{stmid,jdbcType=BIGINT},
+      ServiceId = #{serviceid,jdbcType=INTEGER},
+      ServiceName = #{servicename,jdbcType=VARCHAR},
+      Price = #{price,jdbcType=DECIMAL},
+      DiscountRatio = #{discountratio,jdbcType=DECIMAL},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where StmMedId = #{stmmedid,jdbcType=INTEGER}
+  </update>
+</mapper>

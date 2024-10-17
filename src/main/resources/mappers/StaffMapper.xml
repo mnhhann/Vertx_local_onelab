@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.StaffMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Staff">
+    <!--@mbg.generated-->
+    <!--@Table Staff-->
+    <id column="StaffId" jdbcType="INTEGER" property="staffid" />
+    <result column="GroupId" jdbcType="SMALLINT" property="groupid" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Gender" jdbcType="TINYINT" property="gender" />
+    <result column="Dob" jdbcType="DATE" property="dob" />
+    <result column="Address" jdbcType="VARCHAR" property="address" />
+    <result column="AuCity" jdbcType="VARCHAR" property="aucity" />
+    <result column="AuDistrict" jdbcType="VARCHAR" property="audistrict" />
+    <result column="AuWard" jdbcType="VARCHAR" property="auward" />
+    <result column="Ethnic" jdbcType="VARCHAR" property="ethnic" />
+    <result column="Email" jdbcType="VARCHAR" property="email" />
+    <result column="MobileNo" jdbcType="VARCHAR" property="mobileno" />
+    <result column="IdCard" jdbcType="VARCHAR" property="idcard" />
+    <result column="IssueOn" jdbcType="TIMESTAMP" property="issueon" />
+    <result column="IssueAt" jdbcType="VARCHAR" property="issueat" />
+    <result column="Religion" jdbcType="VARCHAR" property="religion" />
+    <result column="BirthAt" jdbcType="VARCHAR" property="birthat" />
+    <result column="HomeTown" jdbcType="VARCHAR" property="hometown" />
+    <result column="WardId" jdbcType="SMALLINT" property="wardid" />
+    <result column="WardUnitId" jdbcType="SMALLINT" property="wardunitid" />
+    <result column="StartDate" jdbcType="DATE" property="startdate" />
+    <result column="EndDate" jdbcType="DATE" property="enddate" />
+    <result column="InsSocialNo" jdbcType="VARCHAR" property="inssocialno" />
+    <result column="RegCertOn" jdbcType="TIMESTAMP" property="regcerton" />
+    <result column="RegCertScope" jdbcType="VARCHAR" property="regcertscope" />
+    <result column="RegCertAt" jdbcType="VARCHAR" property="regcertat" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    StaffId, GroupId, Code, [Name], Gender, Dob, Address, AuCity, AuDistrict, AuWard, 
+    Ethnic, Email, MobileNo, IdCard, IssueOn, IssueAt, Religion, BirthAt, HomeTown, WardId, 
+    WardUnitId, StartDate, EndDate, InsSocialNo, RegCertOn, RegCertScope, RegCertAt, 
+    [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from Staff
+    where StaffId = #{staffid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from Staff
+    where StaffId = #{staffid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="StaffId" keyProperty="staffid" parameterType="org.example.model.Staff" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Staff (GroupId, Code, [Name], 
+      Gender, Dob, Address, 
+      AuCity, AuDistrict, AuWard, 
+      Ethnic, Email, MobileNo, 
+      IdCard, IssueOn, IssueAt, 
+      Religion, BirthAt, HomeTown, 
+      WardId, WardUnitId, StartDate, 
+      EndDate, InsSocialNo, RegCertOn, 
+      RegCertScope, RegCertAt, [Attribute], 
+      [Status])
+    values (#{groupid,jdbcType=SMALLINT}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=TINYINT}, #{dob,jdbcType=DATE}, #{address,jdbcType=VARCHAR}, 
+      #{aucity,jdbcType=VARCHAR}, #{audistrict,jdbcType=VARCHAR}, #{auward,jdbcType=VARCHAR}, 
+      #{ethnic,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{mobileno,jdbcType=VARCHAR}, 
+      #{idcard,jdbcType=VARCHAR}, #{issueon,jdbcType=TIMESTAMP}, #{issueat,jdbcType=VARCHAR}, 
+      #{religion,jdbcType=VARCHAR}, #{birthat,jdbcType=VARCHAR}, #{hometown,jdbcType=VARCHAR}, 
+      #{wardid,jdbcType=SMALLINT}, #{wardunitid,jdbcType=SMALLINT}, #{startdate,jdbcType=DATE}, 
+      #{enddate,jdbcType=DATE}, #{inssocialno,jdbcType=VARCHAR}, #{regcerton,jdbcType=TIMESTAMP}, 
+      #{regcertscope,jdbcType=VARCHAR}, #{regcertat,jdbcType=VARCHAR}, #{attribute,jdbcType=INTEGER}, 
+      #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" keyColumn="StaffId" keyProperty="staffid" parameterType="org.example.model.Staff" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into Staff
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="groupid != null">
+        GroupId,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="gender != null">
+        Gender,
+      </if>
+      <if test="dob != null">
+        Dob,
+      </if>
+      <if test="address != null">
+        Address,
+      </if>
+      <if test="aucity != null">
+        AuCity,
+      </if>
+      <if test="audistrict != null">
+        AuDistrict,
+      </if>
+      <if test="auward != null">
+        AuWard,
+      </if>
+      <if test="ethnic != null">
+        Ethnic,
+      </if>
+      <if test="email != null">
+        Email,
+      </if>
+      <if test="mobileno != null">
+        MobileNo,
+      </if>
+      <if test="idcard != null">
+        IdCard,
+      </if>
+      <if test="issueon != null">
+        IssueOn,
+      </if>
+      <if test="issueat != null">
+        IssueAt,
+      </if>
+      <if test="religion != null">
+        Religion,
+      </if>
+      <if test="birthat != null">
+        BirthAt,
+      </if>
+      <if test="hometown != null">
+        HomeTown,
+      </if>
+      <if test="wardid != null">
+        WardId,
+      </if>
+      <if test="wardunitid != null">
+        WardUnitId,
+      </if>
+      <if test="startdate != null">
+        StartDate,
+      </if>
+      <if test="enddate != null">
+        EndDate,
+      </if>
+      <if test="inssocialno != null">
+        InsSocialNo,
+      </if>
+      <if test="regcerton != null">
+        RegCertOn,
+      </if>
+      <if test="regcertscope != null">
+        RegCertScope,
+      </if>
+      <if test="regcertat != null">
+        RegCertAt,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="groupid != null">
+        #{groupid,jdbcType=SMALLINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="dob != null">
+        #{dob,jdbcType=DATE},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="aucity != null">
+        #{aucity,jdbcType=VARCHAR},
+      </if>
+      <if test="audistrict != null">
+        #{audistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="auward != null">
+        #{auward,jdbcType=VARCHAR},
+      </if>
+      <if test="ethnic != null">
+        #{ethnic,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="issueon != null">
+        #{issueon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issueat != null">
+        #{issueat,jdbcType=VARCHAR},
+      </if>
+      <if test="religion != null">
+        #{religion,jdbcType=VARCHAR},
+      </if>
+      <if test="birthat != null">
+        #{birthat,jdbcType=VARCHAR},
+      </if>
+      <if test="hometown != null">
+        #{hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="wardid != null">
+        #{wardid,jdbcType=SMALLINT},
+      </if>
+      <if test="wardunitid != null">
+        #{wardunitid,jdbcType=SMALLINT},
+      </if>
+      <if test="startdate != null">
+        #{startdate,jdbcType=DATE},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=DATE},
+      </if>
+      <if test="inssocialno != null">
+        #{inssocialno,jdbcType=VARCHAR},
+      </if>
+      <if test="regcerton != null">
+        #{regcerton,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regcertscope != null">
+        #{regcertscope,jdbcType=VARCHAR},
+      </if>
+      <if test="regcertat != null">
+        #{regcertat,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Staff">
+    <!--@mbg.generated-->
+    update Staff
+    <set>
+      <if test="groupid != null">
+        GroupId = #{groupid,jdbcType=SMALLINT},
+      </if>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        Gender = #{gender,jdbcType=TINYINT},
+      </if>
+      <if test="dob != null">
+        Dob = #{dob,jdbcType=DATE},
+      </if>
+      <if test="address != null">
+        Address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="aucity != null">
+        AuCity = #{aucity,jdbcType=VARCHAR},
+      </if>
+      <if test="audistrict != null">
+        AuDistrict = #{audistrict,jdbcType=VARCHAR},
+      </if>
+      <if test="auward != null">
+        AuWard = #{auward,jdbcType=VARCHAR},
+      </if>
+      <if test="ethnic != null">
+        Ethnic = #{ethnic,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        Email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobileno != null">
+        MobileNo = #{mobileno,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        IdCard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="issueon != null">
+        IssueOn = #{issueon,jdbcType=TIMESTAMP},
+      </if>
+      <if test="issueat != null">
+        IssueAt = #{issueat,jdbcType=VARCHAR},
+      </if>
+      <if test="religion != null">
+        Religion = #{religion,jdbcType=VARCHAR},
+      </if>
+      <if test="birthat != null">
+        BirthAt = #{birthat,jdbcType=VARCHAR},
+      </if>
+      <if test="hometown != null">
+        HomeTown = #{hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="wardid != null">
+        WardId = #{wardid,jdbcType=SMALLINT},
+      </if>
+      <if test="wardunitid != null">
+        WardUnitId = #{wardunitid,jdbcType=SMALLINT},
+      </if>
+      <if test="startdate != null">
+        StartDate = #{startdate,jdbcType=DATE},
+      </if>
+      <if test="enddate != null">
+        EndDate = #{enddate,jdbcType=DATE},
+      </if>
+      <if test="inssocialno != null">
+        InsSocialNo = #{inssocialno,jdbcType=VARCHAR},
+      </if>
+      <if test="regcerton != null">
+        RegCertOn = #{regcerton,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regcertscope != null">
+        RegCertScope = #{regcertscope,jdbcType=VARCHAR},
+      </if>
+      <if test="regcertat != null">
+        RegCertAt = #{regcertat,jdbcType=VARCHAR},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where StaffId = #{staffid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Staff">
+    <!--@mbg.generated-->
+    update Staff
+    set GroupId = #{groupid,jdbcType=SMALLINT},
+      Code = #{code,jdbcType=VARCHAR},
+      [Name] = #{name,jdbcType=VARCHAR},
+      Gender = #{gender,jdbcType=TINYINT},
+      Dob = #{dob,jdbcType=DATE},
+      Address = #{address,jdbcType=VARCHAR},
+      AuCity = #{aucity,jdbcType=VARCHAR},
+      AuDistrict = #{audistrict,jdbcType=VARCHAR},
+      AuWard = #{auward,jdbcType=VARCHAR},
+      Ethnic = #{ethnic,jdbcType=VARCHAR},
+      Email = #{email,jdbcType=VARCHAR},
+      MobileNo = #{mobileno,jdbcType=VARCHAR},
+      IdCard = #{idcard,jdbcType=VARCHAR},
+      IssueOn = #{issueon,jdbcType=TIMESTAMP},
+      IssueAt = #{issueat,jdbcType=VARCHAR},
+      Religion = #{religion,jdbcType=VARCHAR},
+      BirthAt = #{birthat,jdbcType=VARCHAR},
+      HomeTown = #{hometown,jdbcType=VARCHAR},
+      WardId = #{wardid,jdbcType=SMALLINT},
+      WardUnitId = #{wardunitid,jdbcType=SMALLINT},
+      StartDate = #{startdate,jdbcType=DATE},
+      EndDate = #{enddate,jdbcType=DATE},
+      InsSocialNo = #{inssocialno,jdbcType=VARCHAR},
+      RegCertOn = #{regcerton,jdbcType=TIMESTAMP},
+      RegCertScope = #{regcertscope,jdbcType=VARCHAR},
+      RegCertAt = #{regcertat,jdbcType=VARCHAR},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where StaffId = #{staffid,jdbcType=INTEGER}
+  </update>
+</mapper>

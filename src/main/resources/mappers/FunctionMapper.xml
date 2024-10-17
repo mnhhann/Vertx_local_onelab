@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.FunctionMapper">
+  <resultMap id="BaseResultMap" type="org.example.model.Function">
+    <!--@mbg.generated-->
+    <!--@Table [Function]-->
+    <id column="Id" jdbcType="SMALLINT" property="id" />
+    <result column="Code" jdbcType="VARCHAR" property="code" />
+    <result column="Name" jdbcType="VARCHAR" property="name" />
+    <result column="Description" jdbcType="VARCHAR" property="description" />
+    <result column="Type" jdbcType="TINYINT" property="type" />
+    <result column="IsSystem" jdbcType="BIT" property="issystem" />
+    <result column="Attribute" jdbcType="INTEGER" property="attribute" />
+    <result column="Status" jdbcType="SMALLINT" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, Code, [Name], Description, [Type], IsSystem, [Attribute], [Status]
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Short" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from [Function]
+    where Id = #{id,jdbcType=SMALLINT}
+  </select>
+  <select id="getAllFunctions" resultMap="BaseResultMap">
+    SELECT * FROM dbo.Function
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Short">
+    <!--@mbg.generated-->
+    delete from [Function]
+    where Id = #{id,jdbcType=SMALLINT}
+  </delete>
+  <insert id="insert" parameterType="org.example.model.Function">
+    <!--@mbg.generated-->
+    insert into [Function] (Id, Code, [Name], 
+      Description, [Type], IsSystem, 
+      [Attribute], [Status])
+    values (#{id,jdbcType=SMALLINT}, #{code,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{description,jdbcType=VARCHAR}, #{type,jdbcType=TINYINT}, #{issystem,jdbcType=BIT}, 
+      #{attribute,jdbcType=INTEGER}, #{status,jdbcType=SMALLINT})
+  </insert>
+  <insert id="insertSelective" parameterType="org.example.model.Function">
+    <!--@mbg.generated-->
+    insert into [Function]
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="code != null">
+        Code,
+      </if>
+      <if test="name != null">
+        [Name],
+      </if>
+      <if test="description != null">
+        Description,
+      </if>
+      <if test="type != null">
+        [Type],
+      </if>
+      <if test="issystem != null">
+        IsSystem,
+      </if>
+      <if test="attribute != null">
+        [Attribute],
+      </if>
+      <if test="status != null">
+        [Status],
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=SMALLINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=TINYINT},
+      </if>
+      <if test="issystem != null">
+        #{issystem,jdbcType=BIT},
+      </if>
+      <if test="attribute != null">
+        #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.example.model.Function">
+    <!--@mbg.generated-->
+    update [Function]
+    <set>
+      <if test="code != null">
+        Code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        [Name] = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        Description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null">
+        [Type] = #{type,jdbcType=TINYINT},
+      </if>
+      <if test="issystem != null">
+        IsSystem = #{issystem,jdbcType=BIT},
+      </if>
+      <if test="attribute != null">
+        [Attribute] = #{attribute,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        [Status] = #{status,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=SMALLINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.example.model.Function">
+    <!--@mbg.generated-->
+    update [Function]
+    set Code = #{code,jdbcType=VARCHAR},
+      [Name] = #{name,jdbcType=VARCHAR},
+      Description = #{description,jdbcType=VARCHAR},
+      [Type] = #{type,jdbcType=TINYINT},
+      IsSystem = #{issystem,jdbcType=BIT},
+      [Attribute] = #{attribute,jdbcType=INTEGER},
+      [Status] = #{status,jdbcType=SMALLINT}
+    where Id = #{id,jdbcType=SMALLINT}
+  </update>
+</mapper>
